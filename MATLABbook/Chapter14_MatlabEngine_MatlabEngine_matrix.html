@@ -1,0 +1,246 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Chapter14_MatlabEngine_MatlabEngine_matrix</title>
+</head>
+
+<body>
+
+<p><font size="2" face="Courier New">/*<br>
+Changing code in Chapter14_MatlabEngine/MatlabEngine_matrix<br>
+<br>
+Matlab Compiler 3.0 does not support function mxSetName(..)<br>
+for more information, see in<br>
+http://www.mathworks.com/support/solutions/data/34694.shtml<br>
+<br>
+*/<br>
+<br>
+/* Example.h */<br>
+#include &quot;matlab.hpp&quot;<br>
+#include &quot;engine.h&quot;<br>
+<br>
+class Test {<br>
+<br>
+public:<br>
+<br>
+void LinearSolve () ;<br>
+<br>
+void DoubleMatrixToDoubleVector(double **db_matrix, int row, int col, double *db_vector) 
+; <br>
+void DoubleVectorToDoubleMatrix(double **db_matrix, int row, int col, double *db_vector) 
+;<br>
+<br>
+Engine *ep ;<br>
+<br>
+<br>
+Test () {<br>
+<br>
+if (!(ep = engOpen(NULL))) {<br>
+cout&lt;&lt;&quot;Can't start MATLAB engine, check again Test Project&quot;;<br>
+exit(-1);<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+~Test () { <br>
+<br>
+engClose(ep) ;<br>
+<br>
+}<br>
+<br>
+} ;<br>
+<br>
+/* *************************** */<br>
+<br>
+void Test::LinearSolve() <br>
+{<br>
+<br>
+int i, j ;<br>
+<br>
+double A[3][3] = { {1.1, 5.6, 3.3}, {4.4, 12.3, 6.6} , { 7.7, 8.8, 9.9} } ;<br>
+double b[3] = { 12.5, 32.2 , 45.6 } ;<br>
+<br>
+int row = 3 ;<br>
+int col = 3 ;<br>
+<br>
+double **db_matrixA ;<br>
+double *db_vectorA ;<br>
+<br>
+double **db_matrixU ;<br>
+double *db_vectorU ;<br>
+<br>
+double *db_vectorX ;<br>
+<br>
+/* step 1: assign memory for C++ variables */<br>
+db_vectorX = new double [row] ; <br>
+db_vectorA = new double [row*col] ;<br>
+db_vectorU = new double [row*col] ;<br>
+<br>
+db_matrixA = new double*[row] ;<br>
+db_matrixU = new double*[row] ;<br>
+<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+db_matrixA[i] = new double [col] ;<br>
+db_matrixU[i] = new double [col] ;<br>
+}<br>
+<br>
+/* assign values for C++ variable */<br>
+for(i=0; i&lt;row; i++) {<br>
+db_matrixA[i] = &amp; A[i][0] ;<br>
+}<br>
+<br>
+<br>
+/* step 2: declare mxArray variables for using */<br>
+mxArray *mx_A = NULL ;<br>
+mxArray *mx_b = NULL ;<br>
+mxArray *mx_vectorX = NULL ;<br>
+mxArray *mx_U = NULL ;<br>
+<br>
+<br>
+/* step 3: create mxArray vectors and mxArray matrixes*/<br>
+<br>
+mx_A = mxCreateDoubleMatrix(row, col, mxREAL) ; <br>
+mx_U = mxCreateDoubleMatrix(row, col, mxREAL) ; <br>
+mx_b = mxCreateDoubleMatrix(row, 1 , mxREAL) ; <br>
+mx_vectorX = mxCreateDoubleMatrix(row, 1 , mxREAL) ; <br>
+<br>
+/* first, transfer C++ matrix to C++ vector */<br>
+DoubleMatrixToDoubleVector (db_matrixA, row, col, db_vectorA) ;<br>
+<br>
+<br>
+/* second, transfer C++ vector to mxArray matrix */<br>
+/* step 4: located memory for mxArray variables<br>
+memcpy( (char *)mxGetPr(mx_A), (char *)A, row*col*sizeof(A) ); */<br>
+<br>
+memcpy( (char *)mxGetPr(mx_A), (char *)db_vectorA, row*col*sizeof(double) );<br>
+memcpy( (char *)mxGetPr(mx_b), (char *)b, row*sizeof(double) );<br>
+<br>
+<br>
+<br>
+/* step 5: transfer name mx_A to ml_A in Matlab workspace <br>
+Matlab workspace task : Solve Ax = B, and get vector x and upper matrix U. */
+<br>
+<br>
+/* step 6: assign variables for object in Matlab workspace */<br>
+/* this is a new function in MATLAB Compiler 3.0 (step 5 and step6) */<br>
+engPutVariable(ep, &quot;ml_A&quot;, mx_A) ; <br>
+engPutVariable(ep, &quot;ml_b&quot;, mx_b) ; <br>
+<br>
+<br>
+<br>
+/* step 7: perform tasks in Matlab Work */<br>
+engEvalString(ep, &quot; ml_vectorX = mldivide(ml_A, ml_b) ; &quot; ) ; <br>
+engEvalString(ep, &quot; [L, U, P] = lu( ml_A ) ; &quot; ) ; <br>
+<br>
+<br>
+/* step 8: obtain results form Matlab workspace */<br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+mx_vectorX = engGetVariable(ep, &quot;ml_vectorX&quot; ) ;<br>
+mx_U = engGetVariable(ep, &quot;U&quot; ) ;<br>
+<br>
+<br>
+/* step 9: and tranfer back to mxArray type*/<br>
+<br>
+/* first, transfer a mxArray matrix to C++ vector */<br>
+db_vectorX = mxGetPr(mx_vectorX) ; <br>
+db_vectorU = mxGetPr(mx_U) ; <br>
+<br>
+/* second, transfer C++ vector to C++ matrix */<br>
+DoubleVectorToDoubleMatrix (db_matrixU, row, col, db_vectorU) ;<br>
+<br>
+<br>
+/* step 10: close Matlab workspace */<br>
+engEvalString(ep, &quot;close&quot;) ;<br>
+<br>
+<br>
+/* step 11: free memory */<br>
+mxDestroyArray(mx_A) ;<br>
+mxDestroyArray(mx_b) ;<br>
+mxDestroyArray(mx_vectorX) ;<br>
+<br>
+mxDestroyArray(mx_U) ;<br>
+<br>
+<br>
+/* step 12: print out */<br>
+<br>
+cout &lt;&lt; &quot;\n Solution of equation Ax = b \n\n&quot; ;<br>
+for (i=0; i&lt;row; i++) {<br>
+cout&lt;&lt; *( db_vectorX + i) &lt;&lt; endl ;<br>
+}<br>
+<br>
+cout&lt;&lt; &quot;\n Upper Matrix U : \n\n&quot; ;<br>
+for (i=0; i&lt;row; i++) {<br>
+for (j=0; j&lt;col; j++) {<br>
+<br>
+cout &lt;&lt; *( *( db_matrixU +i ) + j ) &lt;&lt; &quot;\t\t&quot; ;<br>
+}<br>
+<br>
+cout&lt;&lt; endl ;<br>
+}<br>
+<br>
+<br>
+delete [] db_matrixA ;<br>
+delete [] db_vectorA ;<br>
+<br>
+delete [] db_matrixU ;<br>
+delete [] db_vectorU ;<br>
+<br>
+delete [] db_vectorX ;<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::DoubleMatrixToDoubleVector(double **db_matrix, int row, int col, 
+double *db_vector) <br>
+{<br>
+<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+*( db_vector + index ) = *( *( db_matrix + i ) + j ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::DoubleVectorToDoubleMatrix(double **db_matrix, int row, int col, 
+double *db_vector)<br>
+<br>
+{<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+<br>
+*( *( db_matrix + i ) + j ) = *( db_vector + index ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */</font></p>
+
+</body>
+
+</html>

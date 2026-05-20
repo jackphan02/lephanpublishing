@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>The new version MATLAB Compiler 3</title>
+</head>
+
+<body>
+
+<p><font size="2" face="Verdana">The new version MATLAB Compiler 3.0 has some 
+changes. Therefore if you are working with the new version MATLAB Compiler 3.0, 
+you need to change some codes in the book as follows:<br>
+&nbsp;</font></p>
+<ol style="font-size: 10pt">
+  <li><font size="2" face="Verdana">In folder Appendix/C_TransferTypeCPPmxArray, 
+  change the code by click
+  <a target="_blank" href="AppendixC_TransferTypeCPPmxArray.html">this link</a>.<br>
+&nbsp;</font></li>
+  <li><font size="2" face="Verdana">In folder Appendix/D_TransferType_mwArray_mxArray, 
+  change the code by click
+  <a target="_blank" href="AppendixD_TransferType_mwArray_mxArray.html">this 
+  link</a>.<br>
+&nbsp;</font></li>
+  <li><font size="2" face="Verdana">In folder Chapter14_MatlabEngine/MatlabEngine_matrix, 
+  change the code by click 
+  <a target="_blank" href="Chapter14_MatlabEngine_MatlabEngine_matrix.html">this link</a>.<br>
+&nbsp;</font></li>
+  <li><font size="2" face="Verdana">In folder Chapter14_MatlabEngine/MatlabEngine_scalar, 
+  change the code by click
+  <a target="_blank" href="Chapter14_MatlabEngine_MatlabEngine_scalar.html">this link.</a></font><font face="Verdana"><br>
+&nbsp;</font></li>
+  <li><font face="Verdana">The code in Chapter06_LinearSystem/LinearSystemProgram/LinearSystemEquations,<br>
+  in the function, void Test::LinearSystemEquations(), at the end of function 
+  remove this line:<br>
+  <br>
+  &nbsp;&nbsp;&nbsp;
+  delete [] db_vectorx ;<br>
+&nbsp;</font></li>
+  <li><font face="Verdana">The code in Chapter10_FindingRoots/FindingRootProgramming,<br>
+  in the function <b>void Test::FindingRootsPolynormial2 ( )</b> ,at the end of 
+  the function remove the lines:<br>
+&nbsp;&nbsp;&nbsp; delete [] db_solutionReal ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_solutionImage ;<br>
+  <br>
+&nbsp;</font></li>
+  <li><font face="Verdana">The code in 
+  Chapter11_FastFourierTransform/FastFourierTransformProgram1D, <br>
+  in the function, <b>void Test::FastFourierTrans1D_b()</b>, at the end of the function 
+  remove the lines:<br>
+  <br>
+  &nbsp;&nbsp;&nbsp;
+  delete [] db_FastFourTransRealX ;<br>
+  &nbsp;&nbsp;&nbsp;
+  delete [] db_FastFourTransImageX ;<br>
+&nbsp;</font></li>
+  <li><font face="Verdana">The code in Chapter12_Eigensystem/EigensystemProgramming,<br>
+  in the function, <b>void Test::EigValueVector2()</b>, at the end of the 
+  function remove the lines:<br>
+  <br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvaluesReal ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvaluesImage ;<br>
+  <br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsReal_1 ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsReal_2 ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsReal_3 ;<br>
+  <br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsImage_1 ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsImage_2 ;<br>
+&nbsp;&nbsp;&nbsp; delete [] db_eigenvectorsImage_3 ; <br>
+&nbsp;</font></li>
+  <li><font face="Verdana">In Chapter 16, MEX-Files, MATLAB Compiler 3.0 cannot 
+  generate a dll file from C++ file (.cpp), but it can generate a dll file from 
+  C file (.c). Therefore we should modify to get an C file. Click
+  <a target="_blank" href="Chapter16_MexFiles.html">this link</a> to see a new C 
+  file that applies for MEX-file.</font><p>&nbsp;</p>
+  <p><font size="2" face="Verdana"><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+&nbsp;</font></li>
+</ol>
+
+</body>
+
+</html>

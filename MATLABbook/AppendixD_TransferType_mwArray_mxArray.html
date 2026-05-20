@@ -1,0 +1,174 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>AppendixD_TransferType_mwArray_mxArray</title>
+</head>
+
+<body>
+
+<p><font size="2" face="Courier New">&nbsp;/*<br>
+<br>
+Changing code in Appendix/D_TransferType_mwArray_mxArray<br>
+Matlab Compiler 3.0 does not support function mxSetName(..)<br>
+for more information, see in<br>
+http://www.mathworks.com/support/solutions/data/34694.shtml<br>
+<br>
+*/<br>
+<br>
+/* <br>
+purpose : showing convert type between mwArray and mxArray <br>
+input : mwArray type<br>
+<br>
+procedure : 1.transfer mwArray type into mxArray<br>
+then use mxArray to perform the task in Matlab Workspce<br>
+2.get results in Matlab workspace then transfer to mxArray<br>
+3.transfer mxArray to mwArray type<br>
+<br>
+output : mwArray type<br>
+<br>
+<br>
+*/<br>
+<br>
+<br>
+/* Example.cpp */<br>
+#include &quot;matlab.hpp&quot;<br>
+#include &quot;engine.h&quot;<br>
+<br>
+class Test {<br>
+<br>
+public:<br>
+void Test::MultipleMatrix() ;<br>
+<br>
+Engine *ep ;<br>
+<br>
+Test () {<br>
+<br>
+if (!(ep = engOpen(NULL))) {<br>
+cout&lt;&lt;&quot;Can't start MATLAB engine, check again Project&quot;;<br>
+exit(-1);<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+~Test () { <br>
+<br>
+engClose(ep) ;<br>
+<br>
+}<br>
+<br>
+} ;<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::MultipleMatrix()<br>
+{<br>
+<br>
+/* showing the translations between mwArray and mxArray <br>
+<br>
+procedure : 1.transfer mwArray type into mxArray<br>
+then use mxArray to perform the task in Matlab Workspce<br>
+2.get results in Matlab workspace then transfer to mxArray<br>
+3.transfer mxArray to mwArray type<br>
+<br>
+*/<br>
+<br>
+mwArray mw_A ; /* will define mw_A is a matrix 2 by 4 */<br>
+mwArray mw_B ; /* will define mw_B is a matrix 4 by 3 */<br>
+<br>
+int rowA = 2 ;<br>
+int colA = 4 ;<br>
+<br>
+int rowB = 4 ;<br>
+int colB = 3 ;<br>
+<br>
+mw_A(1,1) = 1 ;<br>
+mw_A(1,2) = 2 ;<br>
+mw_A(1,3) = 3 ;<br>
+mw_A(1,4) = 4 ;<br>
+<br>
+mw_A(2,1) = 5 ;<br>
+mw_A(2,2) = 6 ;<br>
+mw_A(2,3) = 7 ;<br>
+mw_A(2,4) = 8 ;<br>
+<br>
+/* *** */<br>
+mw_B(1,1) = 1 ;<br>
+mw_B(1,2) = 2 ;<br>
+mw_B(1,3) = 3 ;<br>
+<br>
+mw_B(2,1) = 4 ;<br>
+mw_B(2,2) = 5 ;<br>
+mw_B(2,3) = 6 ;<br>
+<br>
+mw_B(3,1) = 7 ;<br>
+mw_B(3,2) = 8 ;<br>
+mw_B(3,3) = 9 ;<br>
+<br>
+mw_B(4,1) = 10 ;<br>
+mw_B(4,2) = 11 ;<br>
+mw_B(4,3) = 12 ;<br>
+<br>
+int rowC = rowA ;<br>
+int colC = colB ;<br>
+<br>
+<br>
+mxArray *mx_A = NULL ;<br>
+mxArray *mx_B = NULL ;<br>
+mxArray *mx_C = NULL ;<br>
+<br>
+<br>
+mx_A = mxCreateDoubleMatrix(rowA, colA, mxREAL) ; <br>
+mx_B = mxCreateDoubleMatrix(rowB, colB, mxREAL) ; <br>
+mx_C = mxCreateDoubleMatrix(rowC, colC, mxREAL) ; <br>
+<br>
+<br>
+/* begin translation of mwArray to mxArray */<br>
+<br>
+mx_A = mw_A.GetData() ;<br>
+mx_B = mw_B.GetData() ;<br>
+<br>
+/* end translation of mwArray to mxArray */<br>
+<br>
+<br>
+/* begin performing tasks in Matlab workspace <br>
+Matlab workspace task : Calculating the product of two matrixes */<br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+<br>
+engPutVariable(ep, &quot;ml_A&quot;, mx_A) ; <br>
+engPutVariable(ep, &quot;ml_B&quot;, mx_B) ; <br>
+<br>
+<br>
+engEvalString(ep, &quot; ml_C = mtimes(ml_A,ml_B) ; &quot; ) ; <br>
+<br>
+/* end tasks in Matlab workspace */ <br>
+<br>
+/* get results in Matlab workspace then transfer to mxArray */<br>
+mx_C = engGetVariable(ep, &quot;ml_C&quot; ) ;<br>
+<br>
+<br>
+/* begin translation of mxArray to mwArray */<br>
+<br>
+mwArray mw_C (mx_C) ;<br>
+<br>
+/* end translation of mxArray to mwArray */<br>
+<br>
+/*close Matlab workspace */<br>
+engEvalString(ep, &quot;close&quot;) ;<br>
+<br>
+<br>
+/* print out */<br>
+cout &lt;&lt; mw_C &lt;&lt; endl ;<br>
+<br>
+<br>
+}<br>
+<br>
+/* *********************** */</font></p>
+
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>AppendixC_TransferTypeCPPmxArray</title>
+</head>
+
+<body>
+
+<p><font face="Courier New" size="2"><br>
+/*<br>
+Changing code in Appendix/C_TransferTypeCPPmxArray<br>
+<br>
+Matlab Compiler 3.0 does not support function mxSetName(..)<br>
+for more information, see in<br>
+http://www.mathworks.com/support/solutions/data/34694.shtml<br>
+<br>
+*/<br>
+<br>
+<br>
+/* <br>
+purpose : showing transfer type between C++ and mxArray <br>
+input : C++ type<br>
+<br>
+procedure : .transfer C++ type into mxArray<br>
+.using mxArray to perform the task<br>
+.result is mxArray<br>
+.transfer mxArray to C++ type<br>
+<br>
+output : C++ type<br>
+<br>
+<br>
+*/<br>
+<br>
+/* Example.h */<br>
+#include &quot;matlab.hpp&quot;<br>
+#include &quot;engine.h&quot;<br>
+<br>
+class Test {<br>
+<br>
+public:<br>
+<br>
+void GetCubicBspline( ) ;<br>
+void LinearSolve () ;<br>
+<br>
+void DoubleMatrixToDoubleVector(double **db_matrix, int row, int col, double *db_vector) 
+; <br>
+void DoubleVectorToDoubleMatrix(double **db_matrix, int row, int col, double *db_vector) 
+;<br>
+<br>
+Engine *ep ;<br>
+<br>
+<br>
+Test () {<br>
+<br>
+if (!(ep = engOpen(NULL))) {<br>
+cout&lt;&lt;&quot;Can't start MATLAB engine, check again Test Project&quot;;<br>
+exit(-1);<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+~Test () { <br>
+<br>
+engClose(ep) ;<br>
+<br>
+}<br>
+<br>
+} ;<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::GetCubicBspline() {<br>
+<br>
+/* <br>
+showing the conversions of scalar and vector between C++ and mxArray <br>
+<br>
+procedure: 1. transfer C++ scalar and vector to mxArray, <br>
+then use it to perform a task in Matlab workspace. <br>
+2. get results in Matlab workspace then transfer to mxArray<br>
+3. transfer result mxArray scalar and vector to C++ type<br>
+<br>
+*/<br>
+<br>
+double db_calVal = 2.1 ;<br>
+double db_scalar ;<br>
+<br>
+double db_X[6] = { 0.2, 2.2, 3.3, 4.4, 5.5, 6.6 } ; <br>
+double db_Y[6] = { 111, 222, 333, 444, 555, 666 } ;<br>
+int vectorSize = 6 ;<br>
+<br>
+<br>
+double db_ArrayCalVal[1] ;<br>
+double *db_vector ;<br>
+<br>
+/* assign memory for C++ variables */<br>
+db_ArrayCalVal[0] = db_calVal ;<br>
+db_vector = new double[vectorSize] ;<br>
+<br>
+/* declare mxArray variables for using */<br>
+mxArray *mx_X = NULL ;<br>
+mxArray *mx_Y = NULL ;<br>
+mxArray *mx_CalVal = NULL ;<br>
+mxArray *mx_scalar = NULL ;<br>
+mxArray *mx_vector = NULL ;<br>
+<br>
+<br>
+<br>
+/* begin translation of a C++ scalar and vector to mxArray */<br>
+<br>
+mx_X = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ; <br>
+mx_Y = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ;<br>
+mx_CalVal = mxCreateDoubleMatrix(1, 1 , mxREAL) ;<br>
+mx_scalar = mxCreateDoubleMatrix(1, 1 , mxREAL) ;<br>
+mx_vector = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ;<br>
+<br>
+<br>
+memcpy( (char *)mxGetPr(mx_X) , (char *)db_X , vectorSize*sizeof(double) ) ;<br>
+memcpy( (char *)mxGetPr(mx_Y) , (char *)db_Y , vectorSize*sizeof(double) ) ;<br>
+memcpy( (char *)mxGetPr(mx_CalVal), (char *)db_ArrayCalVal, 1*sizeof(double) ) ;<br>
+<br>
+/* end translation of a C++ scalar and vector to mxArray */<br>
+<br>
+<br>
+/* begin performing tasks in Matlab workspace <br>
+Matlab workspace tasks are: Calculating the value of Bspline function and 
+coefficent vector. */ <br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+<br>
+engPutVariable(ep, &quot;ml_X&quot;, mx_X ) ; <br>
+engPutVariable(ep, &quot;ml_Y&quot;, mx_Y ) ; <br>
+engPutVariable(ep, &quot;ml_CalVal&quot;, mx_CalVal) ; <br>
+<br>
+<br>
+engEvalString( ep, &quot;sp = spapi(4,ml_X, ml_Y) ;&quot; ) ; <br>
+engEvalString( ep, &quot;ml_scalar = fnval(sp,ml_CalVal) ;&quot; ) ; <br>
+engEvalString( ep, &quot;ml_vector = fnbrk(sp,'coef') ;&quot; ) ; <br>
+<br>
+/* end tasks in Matlab workspace */ <br>
+<br>
+<br>
+/* get results in Matlab workspace then transfer to mxArray */<br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+mx_scalar = engGetVariable(ep, &quot;ml_scalar&quot; ) ;<br>
+mx_vector = engGetVariable(ep, &quot;ml_vector&quot; ) ;<br>
+<br>
+<br>
+/* begin translation of a mxArray to C++ */<br>
+<br>
+db_scalar = mxGetScalar(mx_scalar) ; <br>
+db_vector = mxGetPr(mx_vector) ; <br>
+<br>
+/* end translation of a mxArray to C++ */<br>
+<br>
+<br>
+/* close Matlab workspace */<br>
+engEvalString(ep, &quot;close&quot;) ; <br>
+<br>
+<br>
+/* free memory */<br>
+mxDestroyArray(mx_X) ;<br>
+mxDestroyArray(mx_Y) ;<br>
+mxDestroyArray(mx_CalVal) ;<br>
+mxDestroyArray(mx_scalar) ;<br>
+mxDestroyArray(mx_vector) ;<br>
+<br>
+<br>
+// print out :<br>
+cout &lt;&lt; &quot;\n The value of B-spline function at &quot; &lt;&lt; db_calVal &lt;&lt; &quot; is : &quot; &lt;&lt; 
+db_scalar &lt;&lt; endl ; <br>
+cout &lt;&lt; &quot;\n The coefficient of B-spline function is \n\n&quot; ;<br>
+<br>
+for (int i=0; i&lt;vectorSize; i++) {<br>
+cout &lt;&lt; *( db_vector + i) &lt;&lt; endl ;<br>
+}<br>
+<br>
+<br>
+delete [] db_vector ;<br>
+<br>
+}<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::LinearSolve() <br>
+{<br>
+/*<br>
+showing the conversions of vector and matrix between C++ and mxArray <br>
+<br>
+procedure: 1. transfer C++ vector and matrix to mxArray, <br>
+then use it to perform a task in Matlab workspace. <br>
+2. get results in Matlab workspace then transfer to mxArray<br>
+3. transfer result mxArray vector and matrix to C++ type<br>
+*/<br>
+<br>
+int i, j ;<br>
+<br>
+double A[3][3] = { {1.1, 5.6, 3.3}, {4.4, 12.3, 6.6} , { 7.7, 8.8, 9.9} } ;<br>
+double b[3] = { 12.5, 32.2 , 45.6 } ;<br>
+<br>
+int row = 3 ;<br>
+int col = 3 ;<br>
+<br>
+double **db_matrixA ;<br>
+double *db_vectorA ;<br>
+<br>
+double **db_matrixU ;<br>
+double *db_vectorU ;<br>
+<br>
+double *db_vectorX ;<br>
+<br>
+/* assign memory for C++ variables */<br>
+db_vectorX = new double [row] ; <br>
+db_vectorA = new double [row*col] ;<br>
+db_vectorU = new double [row*col] ;<br>
+<br>
+db_matrixA = new double*[row] ;<br>
+db_matrixU = new double*[row] ;<br>
+<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+db_matrixA[i] = new double [col] ;<br>
+db_matrixU[i] = new double [col] ;<br>
+}<br>
+<br>
+/* assign values for C++ variable */<br>
+for(i=0; i&lt;row; i++) {<br>
+db_matrixA[i] = &amp; A[i][0] ;<br>
+}<br>
+<br>
+<br>
+/* declare mxArray variables for using */<br>
+mxArray *mx_A = NULL ;<br>
+mxArray *mx_b = NULL ;<br>
+mxArray *mx_vectorX = NULL ;<br>
+mxArray *mx_U = NULL ;<br>
+<br>
+<br>
+/* begin translation of a mxArray matrix to C++ matrix */<br>
+<br>
+mx_A = mxCreateDoubleMatrix(row, col, mxREAL) ; <br>
+mx_U = mxCreateDoubleMatrix(row, col, mxREAL) ; <br>
+mx_b = mxCreateDoubleMatrix(row, 1 , mxREAL) ; <br>
+mx_vectorX = mxCreateDoubleMatrix(row, 1 , mxREAL) ; <br>
+<br>
+/* first, transfer C++ matrix to C++ vector */<br>
+DoubleMatrixToDoubleVector (db_matrixA, row, col, db_vectorA) ;<br>
+<br>
+<br>
+/* second, transfer C++ vector to mxArray matrix */<br>
+memcpy( (char *)mxGetPr(mx_A), (char *)db_vectorA, row*col*sizeof(double) );<br>
+memcpy( (char *)mxGetPr(mx_b), (char *)b, row*sizeof(double) );<br>
+<br>
+/* end translation of a mxArray matrix to C++ matrix */<br>
+<br>
+<br>
+/* begin performing tasks in Matlab workspace <br>
+Matlab workspace tasks : Solve Ax = B, and get vector x and upper matrix U. */
+<br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+<br>
+engPutVariable(ep, &quot;ml_A&quot;, mx_A) ; <br>
+engPutVariable(ep, &quot;ml_b&quot;, mx_b) ; <br>
+<br>
+<br>
+engEvalString(ep, &quot; ml_vectorX = mldivide(ml_A, ml_b) ; &quot; ) ; <br>
+engEvalString(ep, &quot; [L, U, P] = lu( ml_A ) ; &quot; ) ; <br>
+<br>
+/* end tasks in Matlab workspace */ <br>
+<br>
+/* get results in Matlab workspace then transfer to mxArray */<br>
+mx_vectorX = engGetVariable(ep, &quot;ml_vectorX&quot; ) ;<br>
+mx_U = engGetVariable(ep, &quot;U&quot; ) ;<br>
+<br>
+<br>
+/* begin translation of a mxArray to C++ */<br>
+<br>
+/* first, transfer a mxArray matrix to C++ vector */<br>
+db_vectorX = mxGetPr(mx_vectorX) ; <br>
+db_vectorU = mxGetPr(mx_U) ; <br>
+<br>
+/* second, transfer C++ vector to C++ matrix */<br>
+DoubleVectorToDoubleMatrix (db_matrixU, row, col, db_vectorU) ;<br>
+<br>
+/* end translation of a mxArray to C++ */<br>
+<br>
+<br>
+<br>
+/* close Matlab workspace */<br>
+engEvalString(ep, &quot;close&quot;) ;<br>
+<br>
+<br>
+/* free memory */<br>
+mxDestroyArray(mx_A) ;<br>
+mxDestroyArray(mx_b) ;<br>
+mxDestroyArray(mx_vectorX) ;<br>
+<br>
+mxDestroyArray(mx_U) ;<br>
+<br>
+<br>
+/* print out */<br>
+cout &lt;&lt; &quot;\n Solution of equation Ax = b \n\n&quot; ;<br>
+for (i=0; i&lt;row; i++) {<br>
+cout&lt;&lt; *( db_vectorX + i) &lt;&lt; endl ;<br>
+}<br>
+<br>
+cout&lt;&lt; &quot;\n Upper Matrix U : \n\n&quot; ;<br>
+for (i=0; i&lt;row; i++) {<br>
+for (j=0; j&lt;col; j++) {<br>
+<br>
+cout &lt;&lt; *( *( db_matrixU +i ) + j ) &lt;&lt; &quot;\t\t&quot; ;<br>
+}<br>
+<br>
+cout&lt;&lt; endl ;<br>
+}<br>
+<br>
+<br>
+delete [] db_matrixA ;<br>
+delete [] db_vectorA ;<br>
+<br>
+delete [] db_matrixU ;<br>
+<br>
+/* note don't free memories as<br>
+delete [] db_vectorU ; <br>
+delete [] db_vectorX ; <br>
+<br>
+because we had used function mxGetPr(..), so <br>
+MATLAB will free these memories<br>
+<br>
+*/<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::DoubleMatrixToDoubleVector(double **db_matrix, int row, int col, 
+double *db_vector) <br>
+{<br>
+<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+*( db_vector + index ) = *( *( db_matrix + i ) + j ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+<br>
+void Test::DoubleVectorToDoubleMatrix(double **db_matrix, int row, int col, 
+double *db_vector)<br>
+<br>
+{<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+<br>
+*( *( db_matrix + i ) + j ) = *( db_vector + index ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;</font></p>
+
+</body>
+
+</html>

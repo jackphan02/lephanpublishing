@@ -1,0 +1,40 @@
+   <HTML>
+
+   <HEAD>
+
+   <TITLE>Unit Conversions</TITLE>
+   </HEAD>
+   <BODY onResize="resize()" onLoad="resize()" 
+
+   topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center>
+   <SCRIPT LANGUAGE="JavaScript">
+
+   function resize() {
+var w_maxWidth= 450, w_maxHeight= 470;
+   document.Temperature.setSize(w_maxWidth-1, w_maxHeight-1); 
+   window.scroll(0,0);
+
+       }
+
+   window.onResize = resize;
+   window.onLoad = resize;
+
+   </SCRIPT>
+<br>
+   <applet
+  codebase = "."
+  code     = "Temperature.Temperature.class"
+  archive  = "AppletConvert.jar"
+  name     = "Temperature"
+  width    = "450"
+  height   = "470"
+  hspace   = "0"
+  vspace   = "0"
+  align    = "middle"
+>
+</applet>
+
+</center>
+   </BODY>
+   </HTML>

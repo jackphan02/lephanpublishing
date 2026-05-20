@@ -1,0 +1,40 @@
+   <HTML>
+
+   <HEAD>
+
+   <TITLE>Unit Conversions</TITLE>
+   </HEAD>
+   <BODY onResize="resize()" onLoad="resize()" 
+
+   topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<center>
+   <SCRIPT LANGUAGE="JavaScript">
+
+   function resize() {
+var w_maxWidth=410 , w_maxHeight= 670;
+
+   document.Diffusivity.setSize(w_maxWidth-1, w_maxHeight-1); 
+   window.scroll(0,0);
+
+       }
+
+   window.onResize = resize;
+   window.onLoad = resize;
+
+   </SCRIPT>
+<br>
+   <applet
+  codebase = "."
+  code     = "Diffusivity.Diffusivity.class"
+  archive  = "AppletConvert.jar"
+  name     = "Diffusivity"
+  width    = "410"
+  height   = "670"
+  hspace   = "0"
+  vspace   = "0"
+  align    = "middle"
+>
+</applet>
+</center>
+   </BODY>
+   </HTML>

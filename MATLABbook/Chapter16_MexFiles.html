@@ -1,0 +1,319 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="File-List" href="Chapter16_MexFiles1_files/filelist.xml">
+<title>Chapter 16, MEX files</title>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body>
+
+<p><font size="2" face="Verdana"><!--[if gte vml 1]><v:line id="_x0000_s1027"
+ style='position:absolute;left:0;text-align:left;top:0;z-index:1' from="9pt,21pt"
+ to="414.75pt,21pt" strokeweight="2.25pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:1;left:10px;top:26px;
+width:545px;height:4px'><img width=545 height=4
+src="Chapter16_MexFiles1_files/image001.gif" v:shapes="_x0000_s1027"></span><![endif]></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana">/* mySquare.c */<br>
+<br>
+#include &quot;mex.h&quot;<br>
+double mySquare(double x)<br>
+{<br>
+<br>
+double y = x*x ;<br>
+return y ; <br>
+<br>
+}<br>
+<br>
+/* ************************* */ <br>
+<br>
+void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+<br>
+{<br>
+<br>
+/* step : declare double variables */ <br>
+double *db_py ;<br>
+double db_x ;<br>
+<br>
+/* step : assign value for input */<br>
+db_x = mxGetScalar( prhs[0] ) ;<br>
+<br>
+<br>
+/* step : assign memory for return value */<br>
+plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL) ; <br>
+<br>
+<br>
+/* step : assign memory for output */<br>
+db_py = mxGetPr( plhs[0] ) ;<br>
+<br>
+<br>
+<br>
+/* step : assign value for output */<br>
+*db_py = mySquare( db_x ) ;<br>
+<br>
+<br>
+}<br>
+<br>
+/* ************************* */ <br>
+<br>
+&nbsp;</font></p>
+<p><font size="2" face="Verdana"><!--[if gte vml 1]><v:line
+ id="_x0000_s1028" style='position:absolute;left:0;text-align:left;top:0;
+ z-index:1' from="5.25pt,558pt" to="405.75pt,558pt" strokeweight="2.25pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:1;left:5px;top:742px;
+width:538px;height:4px'><img width=538 height=4
+src="Chapter16_MexFiles1_files/image002.gif" v:shapes="_x0000_s1028"></span><![endif]></font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana">/* VectorTimes.c */<br>
+#include &quot;mex.h&quot;<br>
+<br>
+<br>
+void VectorTimes( double *x, int vectorSize, double factor, double *y ) <br>
+{<br>
+<br>
+/* calculate y = k*x */<br>
+int i ;<br>
+<br>
+for (i=0; i&lt;vectorSize; i++) {<br>
+<br>
+*( y + i) = ( *( x + i) )* factor ;<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+<br>
+/* ****************************** */<br>
+<br>
+void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+<br>
+{<br>
+<br>
+/* step 1 : declare double variables */<br>
+double *db_vectorY ;<br>
+double *db_vectorX ;<br>
+<br>
+double db_factor ;<br>
+int vectorSize ;<br>
+<br>
+/* step 2 : assign value for input */<br>
+db_vectorX = mxGetPr( prhs[0] ) ;<br>
+<br>
+db_factor = mxGetScalar( prhs[1] ) ;<br>
+<br>
+<br>
+vectorSize = mxGetN( prhs[0] ) ;<br>
+<br>
+<br>
+<br>
+/* step 3 : assign memory for return value */<br>
+plhs[0] = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ; <br>
+<br>
+<br>
+/* step 4 : assign memory for output */<br>
+db_vectorY = mxGetPr( plhs[0] ) ;<br>
+<br>
+<br>
+/* step 5 : assign value for output */<br>
+<br>
+VectorTimes( db_vectorX, vectorSize, db_factor, db_vectorY ) ;<br>
+<br>
+<br>
+}</font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><!--[if gte vml 1]><v:line
+ id="_x0000_s1031" style='position:absolute;left:0;text-align:left;top:0;
+ z-index:1' from="6.75pt,1300.5pt" to="375.75pt,1300.5pt" strokeweight="2.25pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:1;left:7px;top:1732px;
+width:496px;height:4px'><img width=496 height=4
+src="Chapter16_MexFiles1_files/image003.gif" v:shapes="_x0000_s1031"></span><![endif]></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><!--[if gte vml 1]><v:line
+ id="_x0000_s1034" style='position:absolute;left:0;text-align:left;top:0;
+ z-index:1' from="6.75pt,3271.5pt" to="408.75pt,3271.5pt" strokeweight="2.25pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:1;left:7px;top:4360px;
+width:540px;height:4px'><img width=540 height=4
+src="Chapter16_MexFiles1_files/image004.gif" v:shapes="_x0000_s1034"></span><![endif]>/* 
+matrixTimes.c */<br>
+<br>
+#include &lt;stdlib.h&gt;<br>
+#include &quot;mex.h&quot;<br>
+<br>
+/*<br>
+purpose : Writing the MEX function <br>
+input : . scalar<br>
+. matrix<br>
+<br>
+output : . matrix<br>
+*/<br>
+<br>
+void DoubleMatrixToDoubleVector(double **db_matrix, int row, int col, double *db_vector)
+<br>
+{<br>
+<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+*( db_vector + index ) = *( *( db_matrix + i ) + j ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+<br>
+void DoubleVectorToDoubleMatrix(double **db_matrix, int row, int col, double *db_vector)<br>
+<br>
+{<br>
+int i, j, index ;<br>
+<br>
+for(j=0; j&lt;col; j++) {<br>
+for(i=0; i&lt;row; i++) {<br>
+<br>
+index = j*row + i ;<br>
+<br>
+*( *( db_matrix + i ) + j ) = *( db_vector + index ) ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+/* **************************** */<br>
+<br>
+void matrixTimes( double **x, int row, int col, double factor, double **y ) <br>
+{<br>
+<br>
+/* calculate y = x*k */<br>
+int i, j ;<br>
+for (i=0; i&lt;row; i++) {<br>
+for (j=0; j&lt;col; j++) {<br>
+<br>
+*( *(y + i) + j ) = ( *( *( x + i) +j ) )* factor ;<br>
+<br>
+}<br>
+}<br>
+<br>
+<br>
+<br>
+}<br>
+<br>
+<br>
+/* **************************** */<br>
+<br>
+<br>
+void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+<br>
+{<br>
+<br>
+int i ;<br>
+int row ;<br>
+int col ;<br>
+<br>
+/* step 1 : declare double variables */ <br>
+double **db_matrixY ;<br>
+double **db_matrixX ;<br>
+<br>
+double *db_vectorX ;<br>
+double *db_vectorY ;<br>
+<br>
+double db_factor ;<br>
+<br>
+/* step 2 : assign value for input */<br>
+db_vectorX = mxGetPr( prhs[0] ) ;<br>
+<br>
+row = mxGetM( prhs[0] ) ;<br>
+col = mxGetN( prhs[0] ) ;<br>
+<br>
+db_factor = mxGetScalar( prhs[1] ) ;<br>
+<br>
+/* step 3 : assign memory for matrix */ <br>
+<br>
+<br>
+db_matrixX = malloc( row * sizeof(double *) );<br>
+db_matrixY = malloc( row * sizeof(double *) );<br>
+<br>
+for(i = 0; i &lt; row; i++) {<br>
+db_matrixX[i] = malloc( col * sizeof(double) ); <br>
+db_matrixY[i] = malloc( col * sizeof(double) ); <br>
+}<br>
+<br>
+<br>
+<br>
+/* step 4 : transfer C vector to C matrix this matrix is used as<br>
+a buffer input in calling function matrixTimes */<br>
+<br>
+DoubleVectorToDoubleMatrix(db_matrixX, row, col, db_vectorX) ;<br>
+<br>
+<br>
+<br>
+/* step 5 : assign memory for return value */<br>
+plhs[0] = mxCreateDoubleMatrix(row, col, mxREAL) ; <br>
+<br>
+<br>
+/* step 6 : assign memory for output */<br>
+db_vectorY = mxGetPr( plhs[0] ) ;<br>
+<br>
+<br>
+/* step 7 : Calculate the value of output */<br>
+<br>
+matrixTimes( db_matrixX, row, col, db_factor, db_matrixY ) ;<br>
+<br>
+/* step 8: transfer back C matrix to C vector, <br>
+for db_vectorY=result in mex-file */<br>
+<br>
+DoubleMatrixToDoubleVector( db_matrixY, row, col, db_vectorY ) ;<br>
+<br>
+/* free memory */<br>
+<br>
+for(i = 0; i &lt; row; i++) {<br>
+free(db_matrixX[i]);<br>
+free(db_matrixY[i]);<br>
+}<br>
+<br>
+free(db_matrixX);<br>
+free(db_matrixY);<br>
+<br>
+<br>
+/*<br>
+Note: Matrixes db_matrixX and db_matrixY are used as the buffer variables.<br>
+Therefore their memories are need to free after using.<br>
+*/<br>
+<br>
+}<br>
+<br>
+<br>
+<br>
+/* **************************** */<br>
+&nbsp;</font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

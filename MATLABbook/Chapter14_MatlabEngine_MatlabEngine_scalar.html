@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Chapter14_MatlabEngine_MatlabEngine_scalar</title>
+</head>
+
+<body>
+
+<p><font size="2" face="Courier New">/*<br>
+Changing code in Chapter14_MatlabEngine/MatlabEngine_scalar<br>
+<br>
+Matlab Compiler 3.0 does not support function mxSetName(..)<br>
+for more information, see in<br>
+http://www.mathworks.com/support/solutions/data/34694.shtml<br>
+<br>
+*/<br>
+<br>
+/* Example.h */<br>
+#include &quot;matlab.hpp&quot;<br>
+#include &quot;engine.h&quot;<br>
+<br>
+class Test {<br>
+<br>
+public:<br>
+<br>
+void GetCubicBspline( ) ;<br>
+<br>
+<br>
+Engine *ep ;<br>
+<br>
+<br>
+Test () {<br>
+<br>
+if (!(ep = engOpen(NULL))) {<br>
+cout&lt;&lt;&quot;Can't start MATLAB engine, check again Test Project&quot;;<br>
+exit(-1);<br>
+<br>
+}<br>
+<br>
+}<br>
+<br>
+~Test () { <br>
+<br>
+engClose(ep) ;<br>
+<br>
+}<br>
+<br>
+} ;<br>
+<br>
+/* **************************** */<br>
+<br>
+void Test::GetCubicBspline() {<br>
+<br>
+<br>
+double db_calVal = 2.1 ;<br>
+double db_scalar ;<br>
+<br>
+double db_X[6] = { 0.2, 2.2, 3.3, 4.4, 5.5, 6.6 } ; <br>
+double db_Y[6] = { 111, 222, 333, 444, 555, 666 } ;<br>
+int vectorSize = 6 ;<br>
+<br>
+/* COULD REUSE FROM HERE */<br>
+<br>
+double db_ArrayCalVal[1] ;<br>
+double *db_vector ;<br>
+<br>
+/* step 1: assign memory for C++ variables */<br>
+db_ArrayCalVal[0] = db_calVal ;<br>
+db_vector = new double[vectorSize] ;<br>
+<br>
+<br>
+/* step 2: declare mxArray variables for using */<br>
+mxArray *mx_X = NULL ;<br>
+mxArray *mx_Y = NULL ;<br>
+mxArray *mx_CalVal = NULL ;<br>
+mxArray *mx_scalar = NULL ;<br>
+mxArray *mx_vector = NULL ;<br>
+<br>
+<br>
+/* step 3: create mxArray scalar and mxArray vector*/<br>
+<br>
+mx_X = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ; <br>
+mx_Y = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ;<br>
+mx_CalVal = mxCreateDoubleMatrix(1, 1 , mxREAL) ;<br>
+mx_scalar = mxCreateDoubleMatrix(1, 1 , mxREAL) ;<br>
+mx_vector = mxCreateDoubleMatrix(1, vectorSize, mxREAL) ;<br>
+<br>
+<br>
+/* step 4: locate memory for mxArray variables<br>
+memcpy( (char *)mxGetPr(mx_A), (char *)A, row*col*sizeof(A) ); */<br>
+<br>
+memcpy( (char *)mxGetPr(mx_X) , (char *)db_X , vectorSize*sizeof(double) ) ;<br>
+memcpy( (char *)mxGetPr(mx_Y) , (char *)db_Y , vectorSize*sizeof(double) ) ;<br>
+memcpy( (char *)mxGetPr(mx_CalVal), (char *)db_ArrayCalVal, 1*sizeof(double) ) ;<br>
+<br>
+<br>
+/* step 5: transfer name mx_X to ml_X in Matlab workspace */<br>
+/* step 6: assign variables for object in Matlab workspace */<br>
+<br>
+/* this is a new function in MATLAB Compiler 3.0 (step 5 and step6) */<br>
+engPutVariable(ep, &quot;ml_X&quot;, mx_X) ; <br>
+engPutVariable(ep, &quot;ml_Y&quot;, mx_Y) ; <br>
+engPutVariable(ep, &quot;ml_CalVal&quot;, mx_CalVal) ; <br>
+<br>
+<br>
+<br>
+/* step 7: perform tasks in Matlab Work */<br>
+engEvalString( ep, &quot;sp = spapi(4,ml_X, ml_Y) ;&quot; ) ; <br>
+engEvalString( ep, &quot;ml_scalar = fnval(sp,ml_CalVal) ;&quot; ) ; <br>
+engEvalString( ep, &quot;ml_vector = fnbrk(sp,'coef') ;&quot; ) ; <br>
+<br>
+<br>
+/* step 8: obtain results from Matlab workspace */<br>
+/* this is a new function in MATLAB Compiler 3.0 */<br>
+<br>
+mx_scalar = engGetVariable(ep, &quot;ml_scalar&quot; ) ;<br>
+mx_vector = engGetVariable(ep, &quot;ml_vector&quot; ) ;<br>
+<br>
+<br>
+/* step 9: tranfer back to mxArray type*/<br>
+db_scalar = mxGetScalar(mx_scalar) ; <br>
+db_vector = mxGetPr(mx_vector) ; <br>
+<br>
+<br>
+/* step 10: close Matlab workspace */<br>
+engEvalString(ep, &quot;close&quot;) ; <br>
+<br>
+<br>
+/* step 11: free memory */<br>
+mxDestroyArray(mx_X) ;<br>
+mxDestroyArray(mx_Y) ;<br>
+mxDestroyArray(mx_CalVal) ;<br>
+mxDestroyArray(mx_scalar) ;<br>
+mxDestroyArray(mx_vector) ;<br>
+<br>
+<br>
+/* step 12: print out for testing */<br>
+cout &lt;&lt; &quot;\n The value of B-spline function at &quot; &lt;&lt; db_calVal ;<br>
+cout &lt;&lt; &quot; is : &quot; &lt;&lt; db_scalar &lt;&lt; endl ; <br>
+<br>
+cout &lt;&lt; &quot; The coefficients of B-spline function are &quot; &lt;&lt; endl ;<br>
+<br>
+for (int i=0; i&lt;vectorSize; i++) {<br>
+cout &lt;&lt; *( db_vector + i) &lt;&lt; endl ;<br>
+}<br>
+<br>
+<br>
+delete [] db_vector ;<br>
+<br>
+}<br>
+<br>
+/* **************************** */<br>
+<br>
+<br>
+&nbsp;</font></p>
+
+</body>
+
+</html>
