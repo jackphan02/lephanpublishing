@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pill Counter - Embedded Computer Vision Case Study</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1 {
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0055AA;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #0066CC;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-box {
+            flex: 1;
+            min-width: 450px;
+        }
+
+        video {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        ul {
+            margin-top: 5px;
+        }
+
+        .highlight {
+            background-color: #f5f9ff;
+            border-left: 5px solid #0055AA;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>AI Pill Counter – Embedded Computer Vision Case Study</h1>
+
+    <div class="highlight">
+        This project demonstrates the development of a complete AI-powered embedded vision
+        system for automated pill detection and counting. The system combines embedded hardware,
+        computer vision, machine learning, and real-time software integration to solve a practical
+        automation problem in the healthcare industry.
+    </div>
+
+    <div class="section">
+        <h2>Overview</h2>
+
+        <p>
+            The objective of this project was to accurately count pills placed on a tray using a
+            camera and deep learning model running locally on an embedded edge AI platform.
+            The system operates completely offline and performs image acquisition,
+            object detection, instance segmentation, and counting in real time.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Engineering Disciplines Demonstrated</h2>
+
+        <h3>Embedded Systems Development</h3>
+        <ul>
+            <li>Embedded Linux development</li>
+            <li>Edge AI deployment on NVIDIA Jetson Orin platform</li>
+            <li>Hardware integration and system bring-up</li>
+            <li>GPIO, camera, display, and peripheral interfacing</li>
+            <li>Real-time software optimization</li>
+        </ul>
+
+        <h3>Computer Vision & Machine Learning</h3>
+        <ul>
+            <li>Image acquisition and preprocessing</li>
+            <li>Object detection and instance segmentation</li>
+            <li>Deep learning model training and validation</li>
+            <li>Dataset generation and annotation</li>
+            <li>Performance tuning and accuracy optimization</li>
+        </ul>
+
+        <h3>Software Development</h3>
+        <ul>
+            <li>Python application development</li>
+            <li>C/C++ embedded programming</li>
+            <li>Modular software architecture</li>
+            <li>Performance profiling and optimization</li>
+            <li>Automated testing and debugging</li>
+        </ul>
+
+        <h3>System Integration</h3>
+        <ul>
+            <li>Camera integration and calibration</li>
+            <li>LCD user interface development</li>
+            <li>Hardware-software integration</li>
+            <li>End-to-end product prototyping</li>
+            <li>Field testing and validation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Technical Architecture</h2>
+
+        <p>
+            The system captures high-resolution images from a camera mounted above a pill tray.
+            Images are processed locally using a deep learning model trained to identify and count
+            individual pills, including partially overlapping objects. The final count is displayed
+            on an embedded LCD interface.
+        </p>
+
+        <ul>
+            <li>NVIDIA Jetson Orin Nano</li>
+            <li>Embedded Linux</li>
+            <li>Python</li>
+            <li>C/C++</li>
+            <li>PyTorch</li>
+            <li>OpenCV</li>
+            <li>Mask R-CNN Instance Segmentation</li>
+            <li>Computer Vision</li>
+            <li>Edge AI</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Engineering Challenges Solved</h2>
+
+        <ul>
+            <li>Detecting touching and overlapping pills</li>
+            <li>Managing reflections and lighting variations</li>
+            <li>Optimizing AI inference speed on embedded hardware</li>
+            <li>Designing a reliable image acquisition pipeline</li>
+            <li>Balancing accuracy, performance, and hardware cost</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Demonstration Videos</h2>
+
+        <p>
+            The videos below demonstrate the complete embedded system operating on production
+            hardware. The AI model performs image capture, object detection, instance segmentation,
+            and pill counting locally without requiring cloud processing.
+        </p>
+
+        <div class="video-container">
+
+            <div class="video-box">
+                <h3>Introduction</h3>
+
+                <video controls>
+                    <source src="AI_PillCounterInstroduction.mp4" type="video/mp4">
+                </video>
+
+                <p>
+                    Introduction to the real-time pill detection and counting using embedded AI.
+                </p>
+            </div>
+
+            <div class="video-box">
+                <h3>Performance Demonstration</h3>
+
+                <video controls>
+                    <source src="Camtasia_PillCounterDemo.mp4" type="video/mp4">
+                </video>
+
+                <p>
+                    Demonstration of counting performance with different quantities of pills.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!--
+    <div class="section">
+        <h2>Consulting Services</h2>
+
+        <p>
+            This project reflects the types of engineering services available for consulting
+            engagements and contract development:
+        </p>
+
+        <ul>
+            <li>Embedded Firmware Development</li>
+            <li>Embedded Linux Development</li>
+            <li>Computer Vision Applications</li>
+            <li>AI / Machine Learning Deployment on Edge Devices</li>
+            <li>Hardware-Software Integration</li>
+            <li>Medical Device Software Development</li>
+            <li>Verification & Validation (V&V)</li>
+            <li>Proof-of-Concept and Prototype Development</li>
+            <li>Product Development and System Architecture</li>
+        </ul>
+    </div>
+    -->
+
+    <footer>
+        <p>
+            AI Pill Counter Project | Jack Phan | Embedded Firmware, Edge AI,
+            Computer Vision, and Medical Device Development
+        </p>
+    </footer>
+
+</body>
+</html>
