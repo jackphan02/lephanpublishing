@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LePhan Publishing V&V Automation Test Architecture - PC application, test runners, serial protocol, embedded firmware, simulation, HIL, and automated reports.">
+
+    <title>V&amp;V Test Architecture | LePhan Publishing</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #d9dee5;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 22px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .site-title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #164f8c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 28px 60px;
+        }
+
+        .hero {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 38px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 32px;
+            color: #164f8c;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 900px;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .architecture {
+            max-width: 850px;
+            margin: 30px auto 10px;
+        }
+
+        .architecture-box {
+            background: #fafbfd;
+            border: 2px solid #b9c5d2;
+            border-radius: 8px;
+            padding: 22px 26px;
+            text-align: center;
+        }
+
+        .architecture-box h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #164f8c;
+            font-size: 20px;
+        }
+
+        .architecture-box p {
+            margin: 5px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .architecture-arrow {
+            text-align: center;
+            font-size: 32px;
+            color: #164f8c;
+            line-height: 1.2;
+            padding: 8px 0;
+        }
+
+        .split-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .split-box {
+            background: #fafbfd;
+            border: 2px solid #b9c5d2;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .split-box h3 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .split-box p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 22px;
+        }
+
+        .feature-card {
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 22px;
+            background: #fafbfd;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .flow-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .flow-card {
+            background: #fafbfd;
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 18px 12px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: #164f8c;
+            font-size: 28px;
+            margin: 12px 0;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .report-card {
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 20px;
+            text-align: center;
+            background: #fafbfd;
+        }
+
+        .report-card h3 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .button-row {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+
+            background: #164f8c;
+            color: #ffffff;
+
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #103d6d;
+        }
+
+        .button-secondary {
+            background: #ffffff;
+            color: #164f8c;
+            border: 1px solid #164f8c;
+        }
+
+        .button-secondary:hover {
+            background: #eef4fa;
+        }
+
+        footer {
+            border-top: 1px solid #d9dee5;
+            background: #ffffff;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 14px 20px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-row {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .report-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .flow-row {
+                grid-template-columns: 1fr;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="site-title">
+            LePhan Publishing
+        </div>
+
+        <nav aria-label="Main navigation">
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="Overview.html">V&amp;V Automation</a>
+                </li>
+
+                <li>
+                    <a href="DemoFeatures.html">Demo / Features</a>
+                </li>
+
+                <li>
+                    <a href="TestArchitecture.html">Test Architecture</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#software-demos">Software Demos</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#books">Books</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <h1>V&amp;V Test Architecture</h1>
+
+        <p>
+            The V&amp;V Automation framework separates the desktop test
+            application, test logic, communication protocol, embedded
+            firmware, hardware interface, and reporting functions into
+            distinct layers. This structure allows the framework to be
+            adapted to different embedded products and verification
+            requirements.
+        </p>
+
+    </section>
+
+
+    <!-- Main Architecture -->
+
+    <section class="section">
+
+        <h2>System Architecture</h2>
+
+        <p>
+            Verification begins in the PC application, where the operator
+            selects and executes test cases. Test commands are sent to the
+            embedded device, results are returned to the PC, and the
+            automation software evaluates the results against predefined
+            acceptance criteria.
+        </p>
+
+        <div class="architecture">
+
+            <div class="architecture-box">
+
+                <h3>WPF V&amp;V Test Application</h3>
+
+                <p>
+                    Temperature &nbsp; | &nbsp;
+                    Battery &nbsp; | &nbsp;
+                    Accelerometer &nbsp; | &nbsp;
+                    All V&amp;V Tests
+                </p>
+
+                <p>
+                    Operator Interface • Test Status • Results
+                </p>
+
+            </div>
+
+
+            <div class="architecture-arrow">
+                &#8595;
+            </div>
+
+
+            <div class="architecture-box">
+
+                <h3>Test Automation Layer</h3>
+
+                <p>
+                    Test Cases • Test Criteria • Test Runners
+                </p>
+
+                <p>
+                    PASS / FAIL Evaluation • Session Management
+                </p>
+
+            </div>
+
+
+            <div class="architecture-arrow">
+                &#8595;
+            </div>
+
+
+            <div class="architecture-box">
+
+                <h3>Communication Layer</h3>
+
+                <p>
+                    Serial Service
+                </p>
+
+                <p>
+                    Command / Response Protocol
+                </p>
+
+            </div>
+
+
+            <div class="architecture-arrow">
+                &#8595;
+            </div>
+
+
+            <div class="architecture-box">
+
+                <h3>Embedded Firmware</h3>
+
+                <p>
+                    Command Handler • Test Runner
+                </p>
+
+                <p>
+                    Test Cases • Test Results
+                </p>
+
+            </div>
+
+
+            <div class="architecture-arrow">
+                &#8595;
+            </div>
+
+
+            <div class="split-row">
+
+                <div class="split-box">
+
+                    <h3>Simulation</h3>
+
+                    <p>
+                        Firmware-generated test inputs can be used during
+                        software development before physical test hardware
+                        is available.
+                    </p>
+
+                </div>
+
+
+                <div class="split-box">
+
+                    <h3>Hardware-in-the-Loop</h3>
+
+                    <p>
+                        The same automated test structure can be connected
+                        to physical sensors, control boards, and device
+                        hardware for HIL verification.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PC Application -->
+
+    <section class="section">
+
+        <h2>PC Test Application</h2>
+
+        <p>
+            The desktop application controls test execution and provides
+            the primary operator interface. Each verification area uses
+            the same general automation pattern.
+        </p>
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <h3>Test Case Configuration</h3>
+
+                <p>
+                    Test definitions include expected values, tolerances,
+                    test identifiers, names, and enabled or disabled state.
+                    Criteria can be maintained outside the application.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Test Runners</h3>
+
+                <p>
+                    Dedicated test runners manage command transmission,
+                    response handling, timeout detection, result decoding,
+                    and test evaluation.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Single and Suite Execution</h3>
+
+                <p>
+                    Individual test cases can be executed for development
+                    and troubleshooting, while complete suites can be run
+                    automatically for verification and regression testing.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>All V&amp;V Tests</h3>
+
+                <p>
+                    A higher-level workflow executes multiple test suites
+                    sequentially and produces an overall session result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Communication -->
+
+    <section class="section">
+
+        <h2>PC-to-Embedded Communication</h2>
+
+        <p>
+            The PC application communicates with the embedded control board
+            through a defined command-and-response interface. The protocol
+            separates test execution from the user interface and allows the
+            same automation approach to be reused with additional tests.
+        </p>
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <h3>Serial Communication</h3>
+
+                <p>
+                    A serial service manages communication between the
+                    desktop application and the embedded device.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Defined Packet Protocol</h3>
+
+                <p>
+                    Test commands and results are transferred using
+                    structured packets containing command identifiers,
+                    payload data, and packet validation information.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Request / Confirmation Model</h3>
+
+                <p>
+                    The PC sends a test request and the embedded firmware
+                    returns a corresponding confirmation containing the
+                    measured test result.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Error Handling</h3>
+
+                <p>
+                    The automation layer can detect timeout conditions,
+                    invalid responses, and mismatched test responses before
+                    producing the final test result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Firmware -->
+
+    <section class="section">
+
+        <h2>Embedded Firmware Test Support</h2>
+
+        <p>
+            The embedded firmware contains dedicated V&amp;V support that
+            receives test requests, executes the selected test condition,
+            and returns measured or simulated results to the PC application.
+        </p>
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <h3>Command Handler</h3>
+
+                <p>
+                    Decodes incoming V&amp;V commands and routes each request
+                    to the appropriate embedded test implementation.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Embedded Test Runner</h3>
+
+                <p>
+                    Executes the requested test and prepares the associated
+                    result data for transmission back to the PC.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Simulation Mode</h3>
+
+                <p>
+                    Known input conditions can be simulated in firmware,
+                    allowing the PC test framework and protocol to be tested
+                    before the final hardware setup is complete.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>HIL Mode</h3>
+
+                <p>
+                    Hardware-in-the-Loop operation allows automated tests
+                    to use physical sensors and actual device signals while
+                    retaining the same PC-side test workflow.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Result Flow -->
+
+    <section class="section">
+
+        <h2>Automated Result Flow</h2>
+
+        <p>
+            Each test follows the same high-level sequence from execution
+            through automated reporting.
+        </p>
+
+        <div class="flow-row">
+
+            <div class="flow-card">
+                Test Execution
+            </div>
+
+            <div class="flow-card">
+                Measured Result
+            </div>
+
+            <div class="flow-card">
+                Acceptance Criteria
+            </div>
+
+            <div class="flow-card">
+                PASS / FAIL
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            &#8595;
+        </div>
+
+
+        <div class="flow-row">
+
+            <div class="flow-card">
+                Session Result
+            </div>
+
+            <div class="flow-card">
+                Report Generation
+            </div>
+
+            <div class="flow-card">
+                Test Evidence
+            </div>
+
+            <div class="flow-card">
+                Engineering Review
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Reports -->
+
+    <section class="section">
+
+        <h2>Test Evidence and Reporting</h2>
+
+        <p>
+            Test execution results are stored by session and can be
+            automatically exported into multiple formats for engineering
+            review, traceability, and further analysis.
+        </p>
+
+        <div class="report-grid">
+
+            <div class="report-card">
+
+                <h3>PDF</h3>
+
+                <p>
+                    Human-readable verification report.
+                </p>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <h3>Excel</h3>
+
+                <p>
+                    Structured results for review and analysis.
+                </p>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <h3>JSON</h3>
+
+                <p>
+                    Machine-readable test and session data.
+                </p>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <h3>Logs</h3>
+
+                <p>
+                    Communication and execution history for troubleshooting.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Reusable Architecture -->
+
+    <section class="section">
+
+        <h2>Reusable and Expandable</h2>
+
+        <p>
+            Temperature, Battery, and Accelerometer tests are used in the
+            current demonstration, but they are examples of the test
+            architecture rather than fixed limitations of the framework.
+        </p>
+
+        <p>
+            Additional sensors, device functions, communication interfaces,
+            acceptance criteria, and reporting requirements can be added
+            while maintaining the same overall automation structure.
+        </p>
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <h3>Add New Test Suites</h3>
+
+                <p>
+                    New verification areas can follow the existing
+                    test-case, test-runner, result, and reporting pattern.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Adapt to Different Products</h3>
+
+                <p>
+                    Device-specific commands and hardware interfaces can be
+                    changed while retaining the overall PC automation
+                    framework.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+
+    <section class="section">
+
+        <div class="button-row">
+
+            <a class="button button-secondary"
+               href="DemoFeatures.html">
+                &larr; Demo / Features
+            </a>
+
+            <a class="button"
+               href="../index.html#contact">
+                Contact LePhan Publishing
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    MATLAB is a registered trademark of The MathWorks, Inc.
+    C# is a registered trademark of Microsoft Corporation.
+
+</footer>
+
+
+</body>
+</html>
