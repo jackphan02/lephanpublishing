@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="LePhan Publishing V&V Automation - automated verification and validation testing for embedded systems."
+    >
+
+    <title>V&amp;V Automation Overview | LePhan Publishing</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #d9dee5;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 22px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .site-title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #164f8c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 28px 60px;
+        }
+
+        .hero {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 40px 38px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 32px;
+            color: #164f8c;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 850px;
+        }
+
+        .button-row {
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-right: 10px;
+            margin-bottom: 8px;
+
+            background: #164f8c;
+            color: #ffffff;
+
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #103d6d;
+        }
+
+        .button-secondary {
+            background: #ffffff;
+            color: #164f8c;
+            border: 1px solid #164f8c;
+        }
+
+        .button-secondary:hover {
+            background: #eef4fa;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .feature-card {
+            border: 1px solid #d9dee5;
+            border-radius: 6px;
+            padding: 20px;
+            background: #fafbfd;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 17px;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .demo-list {
+            line-height: 1.9;
+        }
+
+        .demo-list strong {
+            color: #333;
+        }
+
+        .cta {
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 12px;
+        }
+
+        footer {
+            border-top: 1px solid #d9dee5;
+            background: #ffffff;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 800px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 14px 20px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="site-title">LePhan Publishing</div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+
+                <li>
+                    <a href="Overview.html">V&amp;V Automation</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#software-demos">Software Demos</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#books">Books</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <h1>V&amp;V Automation</h1>
+
+        <div class="hero-subtitle">
+            Automated Verification &amp; Validation for Embedded Systems
+        </div>
+
+        <p>
+            A flexible test automation framework for verifying embedded
+            firmware and hardware. The system automates test execution,
+            communicates with the embedded device, evaluates measured
+            results against defined criteria, records test evidence, and
+            generates engineering reports.
+        </p>
+
+        <div class="button-row">
+
+            <a class="button" href="#demonstration">
+                View Demonstration
+            </a>
+
+            <a class="button button-secondary"
+               href="mailto:jackphan02@gmail.com">
+                Contact
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- What It Does -->
+    <section class="section">
+
+        <h2>What It Does</h2>
+
+        <p>
+            The V&amp;V Automation system provides a repeatable method for
+            executing verification tests on embedded products. Test cases
+            and acceptance criteria are defined in configuration files,
+            allowing engineers to execute tests consistently without
+            manually entering test parameters for every run.
+        </p>
+
+        <p>
+            The PC application sends test commands to the embedded device,
+            receives measured results, evaluates the results against
+            expected values and tolerances, and automatically records
+            PASS or FAIL results.
+        </p>
+
+        <p>
+            At the completion of a test session, the system can
+            automatically generate traceable test evidence in multiple
+            formats.
+        </p>
+
+    </section>
+
+
+    <!-- Capabilities -->
+    <section class="section">
+
+        <h2>Key Capabilities</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Automated Test Execution</h3>
+                <p>
+                    Execute individual tests, complete test suites,
+                    or a full V&amp;V test sequence.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Embedded Communication</h3>
+                <p>
+                    Communicate between the PC test application and
+                    embedded firmware using a defined command protocol.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Simulation &amp; HIL</h3>
+                <p>
+                    Support simulated test inputs during development
+                    and Hardware-in-the-Loop testing with real hardware.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Automatic PASS / FAIL</h3>
+                <p>
+                    Compare measured results against expected values,
+                    states, and configurable tolerances.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Test Logging</h3>
+                <p>
+                    Capture test execution details and communication
+                    activity for troubleshooting and traceability.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Automatic Reports</h3>
+                <p>
+                    Generate PDF, Excel, JSON, and session-summary
+                    files automatically.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Current Demo -->
+    <section class="section" id="demonstration">
+
+        <h2>Current Demonstration</h2>
+
+        <p>
+            The current demonstration implements several embedded-system
+            verification test suites.
+        </p>
+
+        <div class="demo-list">
+
+            <p>
+                <strong>Temperature V&amp;V</strong><br>
+                Tests temperature inputs, expected operating states,
+                tolerances, and error conditions.
+            </p>
+
+            <p>
+                <strong>Battery V&amp;V</strong><br>
+                Tests battery voltage conditions including normal,
+                low, critical, and high operating ranges.
+            </p>
+
+            <p>
+                <strong>Accelerometer V&amp;V</strong><br>
+                Tests X, Y, and Z acceleration measurements against
+                expected values and axis tolerances.
+            </p>
+
+            <p>
+                <strong>All V&amp;V Tests</strong><br>
+                Executes the complete Temperature, Battery, and
+                Accelerometer test sequence and generates an overall
+                V&amp;V session result.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Designed For -->
+    <section class="section">
+
+        <h2>Designed For</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Embedded Products</h3>
+                <p>
+                    Automated verification of microcontroller-based
+                    products and embedded firmware.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Medical Devices</h3>
+                <p>
+                    Structured and repeatable testing suitable for
+                    regulated product-development environments.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Regression Testing</h3>
+                <p>
+                    Re-run established test suites after firmware
+                    changes to detect unintended behavior.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Call To Action -->
+    <section class="section cta">
+
+        <h2>Need V&amp;V Automation for Your Product?</h2>
+
+        <p>
+            The framework can be adapted for different embedded devices,
+            communication interfaces, sensors, test criteria, and
+            reporting requirements.
+        </p>
+
+        <a class="button"
+           href="mailto:jackphan02@gmail.com">
+            Contact LePhan Publishing
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    MATLAB is a registered trademark of The MathWorks, Inc.
+    C# is a registered trademark of Microsoft Corporation.
+</footer>
+
+</body>
+</html>
