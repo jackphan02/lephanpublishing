@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LePhan Publishing V&V Automation Sample Reports - PDF, Excel, JSON, session summaries, and test logs generated automatically from embedded-system verification testing.">
+
+    <title>V&amp;V Sample Reports | LePhan Publishing</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #d9dee5;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 22px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .site-title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #164f8c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 28px 60px;
+        }
+
+        .hero {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 38px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 32px;
+            color: #164f8c;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 900px;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 22px;
+        }
+
+        .report-card {
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 22px;
+            background: #fafbfd;
+        }
+
+        .report-card h3 {
+            margin-top: 0;
+            color: #164f8c;
+            font-size: 19px;
+        }
+
+        .report-card p {
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .report-button {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #164f8c;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .report-button:hover {
+            background: #103d6d;
+        }
+
+        .placeholder {
+            margin-top: 15px;
+            padding: 30px 20px;
+            border: 2px dashed #b9c1cb;
+            border-radius: 7px;
+            background: #ffffff;
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        .file-example {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            background: #f5f7fa;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .evidence-list {
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .button-row {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+
+            background: #164f8c;
+            color: #ffffff;
+
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #103d6d;
+        }
+
+        .button-secondary {
+            background: #ffffff;
+            color: #164f8c;
+            border: 1px solid #164f8c;
+        }
+
+        .button-secondary:hover {
+            background: #eef4fa;
+        }
+
+        footer {
+            border-top: 1px solid #d9dee5;
+            background: #ffffff;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 14px 20px;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="site-title">
+            LePhan Publishing
+        </div>
+
+        <nav aria-label="Main navigation">
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="Overview.html">V&amp;V Automation</a>
+                </li>
+
+                <li>
+                    <a href="DemoFeatures.html">Demo / Features</a>
+                </li>
+
+                <li>
+                    <a href="TestArchitecture.html">Test Architecture</a>
+                </li>
+
+                <li>
+                    <a href="SampleReports.html">Sample Reports</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <h1>Sample V&amp;V Reports</h1>
+
+        <p>
+            The V&amp;V Automation framework automatically records test
+            results and generates verification evidence at the completion
+            of each test suite or V&amp;V session.
+        </p>
+
+        <p>
+            Multiple output formats are available so results can be
+            reviewed by engineers, archived for traceability, or processed
+            by other software tools.
+        </p>
+
+    </section>
+
+
+    <!-- Report Types -->
+
+    <section class="section">
+
+        <h2>Generated Report Formats</h2>
+
+        <div class="report-grid">
+
+
+            <!-- PDF -->
+
+            <div class="report-card">
+
+                <h3>PDF Verification Report</h3>
+
+                <p>
+                    A human-readable report containing test identification,
+                    expected values, measured values, tolerances, timestamps,
+                    and PASS / FAIL results.
+                </p>
+
+                <div class="placeholder">
+                    Add PDF report screenshot here
+                </div>
+
+            </div>
+
+
+            <!-- Excel -->
+
+            <div class="report-card">
+
+                <h3>Excel Test Results</h3>
+
+                <p>
+                    Test results are exported into spreadsheet format for
+                    engineering review, filtering, additional calculations,
+                    or archival use.
+                </p>
+
+                <div class="placeholder">
+                    Add Excel report screenshot here
+                </div>
+
+            </div>
+
+
+            <!-- JSON -->
+
+            <div class="report-card">
+
+                <h3>JSON Test Data</h3>
+
+                <p>
+                    Structured JSON output provides machine-readable test
+                    information for integration with additional automation,
+                    databases, or analysis tools.
+                </p>
+
+                <div class="file-example">
+{
+  "TestCaseId": "ACC_001",
+  "TestName": "X +1G",
+  "Result": "PASS",
+  "ExpectedXG": 1.0,
+  "ActualXG": 1.0,
+  "AxisGTolerance": 0.1
+}
+                </div>
+
+            </div>
+
+
+            <!-- Logs -->
+
+            <div class="report-card">
+
+                <h3>Execution Logs</h3>
+
+                <p>
+                    Detailed logs capture test activity and communication
+                    between the PC application and embedded device for
+                    troubleshooting and traceability.
+                </p>
+
+                <div class="file-example">
+Sending V&amp;V test request
+Receiving test confirmation
+Decoding measured result
+Evaluating acceptance criteria
+Test result: PASS
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Session Summary -->
+
+    <section class="section">
+
+        <h2>V&amp;V Session Summary</h2>
+
+        <p>
+            The All V&amp;V Tests workflow generates a higher-level session
+            summary containing the results from each test suite.
+        </p>
+
+        <div class="file-example">
+Session: VVALL-20260811-103428
+
+Temperature Verification
+    Total Tests: 6
+    Passed:      6
+    Failed:      0
+    Result:      PASS
+
+Battery Verification
+    Total Tests: 4
+    Passed:      4
+    Failed:      0
+    Result:      PASS
+
+Accelerometer Verification
+    Total Tests: 3
+    Passed:      3
+    Failed:      0
+    Result:      PASS
+
+Overall Result: PASS
+        </div>
+
+    </section>
+
+
+    <!-- Result Organization -->
+
+    <section class="section">
+
+        <h2>Organized Test Evidence</h2>
+
+        <p>
+            Generated files are organized by test session so the complete
+            evidence from a verification run can be reviewed together.
+        </p>
+
+        <div class="file-example">
+VVTestResults/
+│
+└── AllTests/
+    │
+    └── VVALL-20260811-103428/
+        │
+        ├── Temperature/
+        │     ├── PDF Report
+        │     ├── Excel Report
+        │     └── Session JSON
+        │
+        ├── Battery/
+        │     ├── PDF Report
+        │     ├── Excel Report
+        │     └── Session JSON
+        │
+        ├── Accelerometer/
+        │     ├── PDF Report
+        │     ├── Excel Report
+        │     └── Session JSON
+        │
+        └── All V&amp;V Session Summary
+        </div>
+
+    </section>
+
+
+    <!-- Traceability -->
+
+    <section class="section">
+
+        <h2>Verification Traceability</h2>
+
+        <p>
+            The generated reports provide an automated record of each
+            verification execution. Typical recorded information includes:
+        </p>
+
+        <div class="evidence-list">
+
+            Test session identifier<br>
+            Test case identifier<br>
+            Test name<br>
+            Execution timestamp<br>
+            Expected value or state<br>
+            Measured value<br>
+            Acceptance tolerance<br>
+            PASS / FAIL result<br>
+            Test-suite summary<br>
+            Overall V&amp;V session result
+
+        </div>
+
+    </section>
+
+
+    <!-- Custom Reporting -->
+
+    <section class="section">
+
+        <h2>Adaptable Reporting</h2>
+
+        <p>
+            Report content and format can be adapted to project-specific
+            requirements. Additional information such as device serial
+            number, firmware version, operator name, project name, test
+            requirement identifiers, or approval information can be added
+            as required.
+        </p>
+
+        <p>
+            This allows the same V&amp;V automation framework to support
+            different products and verification processes while retaining
+            consistent automated test execution and evidence generation.
+        </p>
+
+    </section>
+
+
+    <!-- Navigation -->
+
+    <section class="section">
+
+        <div class="button-row">
+
+            <a class="button button-secondary"
+               href="TestArchitecture.html">
+                &larr; Test Architecture
+            </a>
+
+            <a class="button"
+               href="../index.html#contact">
+                Contact LePhan Publishing
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    MATLAB is a registered trademark of The MathWorks, Inc.
+    C# is a registered trademark of Microsoft Corporation.
+
+</footer>
+
+
+</body>
+</html>
