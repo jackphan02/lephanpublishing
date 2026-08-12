@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="LePhan Publishing V&V Automation Demo and Features - automated embedded-system verification testing, test execution, reporting, and traceability.">
+
+    <title>V&amp;V Automation Demo / Features | LePhan Publishing</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #d9dee5;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 22px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .site-title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #164f8c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 28px 60px;
+        }
+
+        .hero {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 38px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 32px;
+            color: #164f8c;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 900px;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #d9dee5;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 22px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 22px;
+        }
+
+        .feature-card {
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 22px;
+            background: #fafbfd;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 19px;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .workflow {
+            margin-top: 22px;
+            padding: 22px;
+            background: #f5f7fa;
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            text-align: center;
+            line-height: 2;
+            font-weight: bold;
+        }
+
+        .arrow {
+            color: #164f8c;
+            padding: 0 10px;
+        }
+
+        .screenshot-placeholder {
+            margin-top: 22px;
+            border: 2px dashed #b9c1cb;
+            border-radius: 8px;
+            background: #f9fafb;
+            padding: 55px 25px;
+            text-align: center;
+            color: #777;
+        }
+
+        .screenshot-placeholder strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .report-card {
+            border: 1px solid #d9dee5;
+            border-radius: 7px;
+            padding: 20px;
+            text-align: center;
+            background: #fafbfd;
+        }
+
+        .report-card h3 {
+            margin-top: 0;
+            color: #164f8c;
+        }
+
+        .button-row {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+
+            background: #164f8c;
+            color: #ffffff;
+
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #103d6d;
+        }
+
+        .button-secondary {
+            background: #ffffff;
+            color: #164f8c;
+            border: 1px solid #164f8c;
+        }
+
+        .button-secondary:hover {
+            background: #eef4fa;
+        }
+
+        footer {
+            border-top: 1px solid #d9dee5;
+            background: #ffffff;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 14px 20px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="site-title">
+            LePhan Publishing
+        </div>
+
+        <nav aria-label="Main navigation">
+
+            <ul>
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="Overview.html">V&amp;V Automation</a>
+                </li>
+
+                <li>
+                    <a href="DemoFeatures.html">Demo / Features</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#software-demos">Software Demos</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#books">Books</a>
+                </li>
+
+                <li>
+                    <a href="../index.html#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <h1>V&amp;V Automation Demo / Features</h1>
+
+        <p>
+            This demonstration shows how an automated Verification &amp;
+            Validation system can execute embedded-system tests,
+            communicate with firmware, evaluate results, and generate
+            traceable test records with minimal manual interaction.
+        </p>
+
+    </section>
+
+
+    <!-- Application Demo -->
+
+    <section class="section">
+
+        <h2>V&amp;V Test Application</h2>
+
+        <p>
+            The desktop application provides a single interface for
+            configuring communication with the device under test,
+            executing verification tests, monitoring results, and
+            accessing generated reports.
+        </p>
+
+
+        <div class="screenshot-placeholder">
+
+            <strong>
+                V&amp;V Automation Application Screenshot
+            </strong>
+
+            Add a screenshot of the WPF application here.
+
+        </div>
+
+    </section>
+
+
+    <!-- Test Suites -->
+
+    <section class="section">
+
+        <h2>Automated Test Suites</h2>
+
+        <div class="feature-grid">
+
+
+            <!-- Temperature -->
+
+            <div class="feature-card">
+
+                <h3>Temperature V&amp;V</h3>
+
+                <p>
+                    Executes defined temperature verification tests and
+                    evaluates measured temperature, operating state, and
+                    configured tolerance criteria.
+                </p>
+
+                <p>
+                    Tests can be executed individually or as a complete
+                    Temperature test suite.
+                </p>
+
+            </div>
+
+
+            <!-- Battery -->
+
+            <div class="feature-card">
+
+                <h3>Battery V&amp;V</h3>
+
+                <p>
+                    Verifies battery operating conditions using defined
+                    voltage inputs and expected battery states.
+                </p>
+
+                <p>
+                    Test cases can verify normal, low, critical, and high
+                    voltage conditions.
+                </p>
+
+            </div>
+
+
+            <!-- Accelerometer -->
+
+            <div class="feature-card">
+
+                <h3>Accelerometer V&amp;V</h3>
+
+                <p>
+                    Verifies acceleration measurements on the X, Y, and Z
+                    axes by comparing actual values against expected
+                    values and configurable tolerances.
+                </p>
+
+            </div>
+
+
+            <!-- All Tests -->
+
+            <div class="feature-card">
+
+                <h3>All V&amp;V Tests</h3>
+
+                <p>
+                    Executes multiple verification test suites
+                    sequentially from a single command.
+                </p>
+
+                <p>
+                    The system tracks the PASS / FAIL result for each
+                    test suite and calculates an overall V&amp;V result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- All Tests Workflow -->
+
+    <section class="section">
+
+        <h2>Complete Automated Test Workflow</h2>
+
+        <p>
+            The All V&amp;V Tests function provides a higher-level
+            automated workflow for executing multiple verification suites.
+        </p>
+
+        <div class="workflow">
+
+            Temperature Tests
+
+            <span class="arrow">&rarr;</span>
+
+            Battery Tests
+
+            <span class="arrow">&rarr;</span>
+
+            Accelerometer Tests
+
+            <span class="arrow">&rarr;</span>
+
+            Overall PASS / FAIL
+
+        </div>
+
+        <p>
+            Each suite is executed automatically and its results are
+            recorded before the next suite begins. When the complete
+            sequence finishes, a session summary records the overall
+            verification result.
+        </p>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="section">
+
+        <h2>Key Automation Features</h2>
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <h3>Run Individual Tests</h3>
+
+                <p>
+                    Engineers can execute a specific verification case
+                    during development, debugging, or troubleshooting.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Run Complete Test Suites</h3>
+
+                <p>
+                    Execute all enabled test cases automatically using
+                    predefined test criteria.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Configurable Test Criteria</h3>
+
+                <p>
+                    Expected values, tolerances, test enable settings,
+                    and other test parameters can be defined outside the
+                    application using configuration files.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Automatic PASS / FAIL</h3>
+
+                <p>
+                    Measured results are compared against predefined
+                    acceptance criteria without requiring manual
+                    calculations.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Serial Device Communication</h3>
+
+                <p>
+                    The PC application communicates with embedded
+                    firmware using a defined command and response
+                    protocol.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Simulation and HIL Support</h3>
+
+                <p>
+                    Tests can begin using simulated firmware inputs and
+                    later transition to Hardware-in-the-Loop testing with
+                    physical sensors and hardware.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Test Logging</h3>
+
+                <p>
+                    Communication activity and test execution information
+                    are logged for troubleshooting and engineering
+                    traceability.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Automatic Session Results</h3>
+
+                <p>
+                    Test results are organized into session folders,
+                    making it easier to identify and review evidence from
+                    each verification run.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Reports -->
+
+    <section class="section">
+
+        <h2>Automatic Test Evidence</h2>
+
+        <p>
+            Test evidence is automatically generated at the completion
+            of a test suite or V&amp;V session.
+        </p>
+
+        <div class="report-grid">
+
+            <div class="report-card">
+                <h3>PDF</h3>
+                <p>
+                    Human-readable test report.
+                </p>
+            </div>
+
+            <div class="report-card">
+                <h3>Excel</h3>
+                <p>
+                    Test results for analysis and review.
+                </p>
+            </div>
+
+            <div class="report-card">
+                <h3>JSON</h3>
+                <p>
+                    Machine-readable structured test data.
+                </p>
+            </div>
+
+            <div class="report-card">
+                <h3>Logs</h3>
+                <p>
+                    Detailed execution and communication history.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Benefits -->
+
+    <section class="section">
+
+        <h2>Benefits of Automated V&amp;V</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <h3>Repeatable Testing</h3>
+
+                <p>
+                    The same test criteria and procedure can be executed
+                    consistently across multiple firmware builds.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Reduced Manual Effort</h3>
+
+                <p>
+                    Automated execution and result evaluation reduce
+                    repetitive manual testing tasks.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Traceable Evidence</h3>
+
+                <p>
+                    Results, timestamps, test identifiers, and generated
+                    reports provide records of each verification session.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>Expandable Architecture</h3>
+
+                <p>
+                    Additional devices, sensors, test suites, and test
+                    criteria can be added as product requirements evolve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+
+    <section class="section">
+
+        <div class="button-row">
+
+            <a class="button button-secondary"
+               href="Overview.html">
+                &larr; Overview
+            </a>
+
+            <a class="button"
+               href="../index.html#contact">
+                Contact LePhan Publishing
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    MATLAB is a registered trademark of The MathWorks, Inc.
+    C# is a registered trademark of Microsoft Corporation.
+
+</footer>
+
+
+</body>
+</html>
