@@ -154,6 +154,17 @@
             background: #103d6d;
         }
 
+        .pdf-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pdf-buttons .report-button {
+            width: 100%;
+            text-align: center;
+        }        
+
         .placeholder {
             margin-top: 15px;
             padding: 30px 20px;
@@ -326,16 +337,38 @@
 
             <div class="report-card">
 
-                <h3>PDF Verification Report</h3>
+                <h3>PDF Verification Reports</h3>
 
                 <p>
-                    A human-readable report containing test identification,
+                    Auto-generated PDF reports contain test identification,
                     expected values, measured values, tolerances, timestamps,
                     and PASS / FAIL results.
                 </p>
 
-                <div class="placeholder">
-                    Add PDF report screenshot here
+                <p>
+                    Select an example report:
+                </p>
+
+                <div class="pdf-buttons">
+
+                    <a class="report-button"
+                    href="ExamplePdfFiles/Temperature_Test_Report_TEMP-2026-08-12_11-59-31_PASS.pdf"
+                    target="_blank">
+                        Temperature Report - PASS
+                    </a>
+
+                    <a class="report-button"
+                    href="ExamplePdfFiles/Battery_Test_Report_BATT-2026-08-12_11-59-36_FAIL.pdf"
+                    target="_blank">
+                        Battery Report - FAIL
+                    </a>
+
+                    <a class="report-button"
+                    href="ExamplePdfFiles/Accelerometer_Test_Report_ACC-2026-08-12_11-59-39_PASS.pdf"
+                    target="_blank">
+                        Accelerometer Report - PASS
+                    </a>
+
                 </div>
 
             </div>
