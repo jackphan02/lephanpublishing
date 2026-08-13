@@ -186,6 +186,40 @@
         .json-buttons .report-button {
             width: 100%;
             text-align: center;
+        }    
+                
+        .json-group {
+            margin-top: 20px;
+        }
+
+        .json-group strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        /* First row: one full-width session button */
+        .json-session-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Second row: exactly three equal buttons */
+        .json-test-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            width: 100%;
+        }
+
+        .json-test-buttons .report-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px 4px;
+            white-space: nowrap;
         }        
 
         .placeholder {
@@ -458,12 +492,14 @@
 
                     <strong>Temperature</strong>
 
+                    <!-- Row 1: Session -->
                     <a class="report-button json-session-button"
                     href="ExampleJsonFiles/TemperatureSession_TEMP-2026-08-12_11-59-31_PASS.json"
                     target="_blank">
                         Session JSON - PASS
                     </a>
 
+                    <!-- Row 2: Three single tests -->
                     <div class="json-test-buttons">
 
                         <a class="report-button"
@@ -481,7 +517,7 @@
                         <a class="report-button"
                         href="ExampleJsonFiles/Temperature_TEMP_003_2026-08-12_11-59-34-788_PASS.json"
                         target="_blank">
-                            Test 003 -- PASS
+                            Test 003 + PASS
                         </a>
 
                     </div>
