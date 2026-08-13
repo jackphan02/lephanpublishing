@@ -166,6 +166,17 @@
             text-align: center;
         }        
 
+        .excel-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .excel-buttons .report-button {
+            width: 100%;
+            text-align: center;
+        }        
+
         .placeholder {
             margin-top: 15px;
             padding: 30px 20px;
@@ -382,13 +393,32 @@
                 <h3>Excel Test Results</h3>
 
                 <p>
-                    Test results are exported into spreadsheet format for
-                    engineering review, filtering, additional calculations,
-                    or archival use.
+                    Auto-generated Excel reports contain test identification,
+                    expected values, measured values, tolerances, timestamps,
+                    and PASS / FAIL results for engineering review and analysis.
                 </p>
 
-                <div class="placeholder">
-                    Add Excel report screenshot here
+                <p>
+                    Select an example report:
+                </p>
+
+                <div class="excel-buttons">
+
+                    <a class="report-button"
+                    href="ExampleExcelFiles/Temperature_Test_Report_TEMP-2026-08-12_11-59-31_PASS.xlsx">
+                        Temperature Report - PASS
+                    </a>
+
+                    <a class="report-button"
+                    href="ExampleExcelFiles/Battery_Test_Report_BATT-2026-08-12_11-59-36_FAIL.xlsx">
+                        Battery Report - FAIL
+                    </a>
+
+                    <a class="report-button"
+                    href="ExampleExcelFiles/Accelerometer_Test_Report_ACC-2026-08-12_11-59-39_PASS.xlsx">
+                        Accelerometer Report - PASS
+                    </a>
+
                 </div>
 
             </div>
