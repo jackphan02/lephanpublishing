@@ -648,85 +648,49 @@
 
     <!-- Session Summary -->
 
-    <section class="section">
+    <section class="vv-session-summary">
 
         <h2>V&amp;V Session Summary</h2>
 
         <p>
-            The All V&amp;V Tests workflow generates a higher-level session
-            summary containing the results from each test suite.
+            The <strong>All V&amp;V Tests</strong> workflow runs the Temperature,
+            Battery, and Accelerometer verification suites in sequence and generates
+            the corresponding result files for each test suite.
         </p>
 
-        <!-- V&V Session Flow -->
-        <div class="vv-flow">
+        <p>
+            After all test suites have completed, the workflow creates a higher-level
+            V&amp;V session summary that combines the results from all three suites
+            and reports the final overall result.
+        </p>
 
-            <div class="vv-flow-box vv-flow-main">
-                <strong>All V&amp;V Tests</strong>
-            </div>
+        <!-- All V&V Tests Flowchart -->
+        <div class="vv-flowchart-container">
+            <img
+                src="images/VVAllTestFlowchart.png"
+                alt="All V&V Tests workflow showing Temperature, Battery, and Accelerometer verification, generated report files, V&V session summary, and overall PASS or FAIL result."
+                class="vv-flowchart-image">
+        </div>
 
-            <div class="vv-flow-arrow">↓</div>
+        <p>
+            Each verification suite automatically generates
+            <strong>PDF, Excel, JSON, and log files</strong>.
+            The V&amp;V Session Summary then generates a
+            <strong>Session JSON</strong> file containing the combined results.
+        </p>
 
-            <!-- Temperature -->
-            <div class="vv-flow-row">
-                <div class="vv-flow-box">
-                    <strong>Temperature</strong>
-                    <span>Verification</span>
-                </div>
+        <div class="session-summary-box">
+            <strong>Session:</strong> VVALL-20260811-103428<br>
+            <strong>Temperature Verification</strong>
+            &nbsp; Total Tests: 6 &nbsp; Passed: 6 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
 
-                <div class="vv-flow-generated">
-                    → Generated files: PDF / Excel / JSON / Log
-                </div>
-            </div>
+            <strong>Battery Verification</strong>
+            &nbsp; Total Tests: 4 &nbsp; Passed: 4 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
 
-            <div class="vv-flow-arrow">↓</div>
+            <strong>Accelerometer Verification</strong>
+            &nbsp; Total Tests: 3 &nbsp; Passed: 3 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
 
-            <!-- Battery -->
-            <div class="vv-flow-row">
-                <div class="vv-flow-box">
-                    <strong>Battery</strong>
-                    <span>Verification</span>
-                </div>
-
-                <div class="vv-flow-generated">
-                    → Generated files: PDF / Excel / JSON / Log
-                </div>
-            </div>
-
-            <div class="vv-flow-arrow">↓</div>
-
-            <!-- Accelerometer -->
-            <div class="vv-flow-row">
-                <div class="vv-flow-box">
-                    <strong>Accelerometer</strong>
-                    <span>Verification</span>
-                </div>
-
-                <div class="vv-flow-generated">
-                    → Generated files: PDF / Excel / JSON / Log
-                </div>
-            </div>
-
-            <div class="vv-flow-arrow">↓</div>
-
-            <!-- Session Summary -->
-            <div class="vv-flow-row">
-                <div class="vv-flow-box">
-                    <strong>V&amp;V Session</strong>
-                    <span>Summary</span>
-                </div>
-
-                <div class="vv-flow-generated">
-                    → Generated file: Session JSON
-                </div>
-            </div>
-
-            <div class="vv-flow-arrow">↓</div>
-
-            <div class="vv-flow-box vv-flow-result">
-                <strong>Overall Result</strong>
-                <span>PASS / FAIL</span>
-            </div>
-
+            <strong>Overall Result:</strong> PASS
         </div>
 
     </section>
