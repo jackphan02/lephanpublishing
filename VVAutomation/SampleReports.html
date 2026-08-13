@@ -657,28 +657,76 @@
             summary containing the results from each test suite.
         </p>
 
-        <div class="file-example">
-Session: VVALL-20260811-103428
+        <!-- V&V Session Flow -->
+        <div class="vv-flow">
 
-Temperature Verification
-    Total Tests: 6
-    Passed:      6
-    Failed:      0
-    Result:      PASS
+            <div class="vv-flow-box vv-flow-main">
+                <strong>All V&amp;V Tests</strong>
+            </div>
 
-Battery Verification
-    Total Tests: 4
-    Passed:      4
-    Failed:      0
-    Result:      PASS
+            <div class="vv-flow-arrow">↓</div>
 
-Accelerometer Verification
-    Total Tests: 3
-    Passed:      3
-    Failed:      0
-    Result:      PASS
+            <!-- Temperature -->
+            <div class="vv-flow-row">
+                <div class="vv-flow-box">
+                    <strong>Temperature</strong>
+                    <span>Verification</span>
+                </div>
 
-Overall Result: PASS
+                <div class="vv-flow-generated">
+                    → Generated files: PDF / Excel / JSON / Log
+                </div>
+            </div>
+
+            <div class="vv-flow-arrow">↓</div>
+
+            <!-- Battery -->
+            <div class="vv-flow-row">
+                <div class="vv-flow-box">
+                    <strong>Battery</strong>
+                    <span>Verification</span>
+                </div>
+
+                <div class="vv-flow-generated">
+                    → Generated files: PDF / Excel / JSON / Log
+                </div>
+            </div>
+
+            <div class="vv-flow-arrow">↓</div>
+
+            <!-- Accelerometer -->
+            <div class="vv-flow-row">
+                <div class="vv-flow-box">
+                    <strong>Accelerometer</strong>
+                    <span>Verification</span>
+                </div>
+
+                <div class="vv-flow-generated">
+                    → Generated files: PDF / Excel / JSON / Log
+                </div>
+            </div>
+
+            <div class="vv-flow-arrow">↓</div>
+
+            <!-- Session Summary -->
+            <div class="vv-flow-row">
+                <div class="vv-flow-box">
+                    <strong>V&amp;V Session</strong>
+                    <span>Summary</span>
+                </div>
+
+                <div class="vv-flow-generated">
+                    → Generated file: Session JSON
+                </div>
+            </div>
+
+            <div class="vv-flow-arrow">↓</div>
+
+            <div class="vv-flow-box vv-flow-result">
+                <strong>Overall Result</strong>
+                <span>PASS / FAIL</span>
+            </div>
+
         </div>
 
     </section>
