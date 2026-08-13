@@ -1,0 +1,64 @@
+2026-08-12 11:59:39.669 [INFO] Criteria File   : C:\MyDocs\ConsultantProject\VVTemperature\VVTemp\bin\Debug\net8.0-windows\TestCriteria\AccelerometerTestCriteria.json
+2026-08-12 11:59:39.669 [INFO] Loaded Tests    : 3
+2026-08-12 11:59:39.669 [INFO] ========================================
+2026-08-12 11:59:39.669 [INFO] Accelerometer test session started.
+2026-08-12 11:59:39.669 [INFO] Session ID      : ACC-2026-08-12_11-59-39
+2026-08-12 11:59:39.669 [INFO] Session Folder  : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260812-115931\Accelerometer\ACCEL-20260812-115939
+2026-08-12 11:59:39.669 [INFO] Operator        : Jack Phan
+2026-08-12 11:59:39.669 [INFO] COM Port        : COM4
+2026-08-12 11:59:39.669 [INFO] Firmware ver.   : 1.0.0
+2026-08-12 11:59:39.669 [INFO] Start Time      : 2026-08-12 11:59:39.668
+2026-08-12 11:59:39.669 [INFO] ========================================
+2026-08-12 11:59:39.670 [INFO] 
+2026-08-12 11:59:39.670 [INFO] Test started : ACC_001 - X +1G
+2026-08-12 11:59:39.671 [INFO] Start time: 2026-08-12 11:59:39.671
+2026-08-12 11:59:39.671 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-12 11:59:40.694 [INFO] End time: 2026-08-12 11:59:40.694
+2026-08-12 11:59:40.694 [INFO] Duration: 00:00:01.0231025
+2026-08-12 11:59:40.698 [INFO] Expected X = 1.000 g
+2026-08-12 11:59:40.698 [INFO] Measured X = 1.000 g
+2026-08-12 11:59:40.698 [INFO] Expected Y = 0.000 g
+2026-08-12 11:59:40.698 [INFO] Measured Y = 0.000 g
+2026-08-12 11:59:40.698 [INFO] Expected Z = 0.000 g
+2026-08-12 11:59:40.698 [INFO] Measured Z = 0.000 g
+2026-08-12 11:59:40.698 [INFO] Axis Tolerance = 0.100 g
+2026-08-12 11:59:40.698 [INFO] ACC_001 : PASS
+2026-08-12 11:59:40.698 [INFO] JsonFile: Accelerometer_ACC_001_2026-08-12_11-59-40-694_PASS.json
+2026-08-12 11:59:40.698 [INFO] 
+2026-08-12 11:59:40.698 [INFO] Test started : ACC_002 - Y +1G
+2026-08-12 11:59:40.699 [INFO] Start time: 2026-08-12 11:59:40.699
+2026-08-12 11:59:40.699 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-12 11:59:41.724 [INFO] End time: 2026-08-12 11:59:41.724
+2026-08-12 11:59:41.724 [INFO] Duration: 00:00:01.0256168
+2026-08-12 11:59:41.726 [INFO] Expected X = 0.000 g
+2026-08-12 11:59:41.726 [INFO] Measured X = 0.000 g
+2026-08-12 11:59:41.726 [INFO] Expected Y = 1.000 g
+2026-08-12 11:59:41.726 [INFO] Measured Y = 0.920 g
+2026-08-12 11:59:41.726 [INFO] Expected Z = 0.000 g
+2026-08-12 11:59:41.726 [INFO] Measured Z = 0.000 g
+2026-08-12 11:59:41.726 [INFO] Axis Tolerance = 0.100 g
+2026-08-12 11:59:41.726 [INFO] ACC_002 : PASS
+2026-08-12 11:59:41.726 [INFO] JsonFile: Accelerometer_ACC_002_2026-08-12_11-59-41-724_PASS.json
+2026-08-12 11:59:41.726 [INFO] 
+2026-08-12 11:59:41.726 [INFO] Test started : ACC_003 - Z +1G
+2026-08-12 11:59:41.726 [INFO] Start time: 2026-08-12 11:59:41.726
+2026-08-12 11:59:41.726 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-12 11:59:42.768 [INFO] End time: 2026-08-12 11:59:42.768
+2026-08-12 11:59:42.768 [INFO] Duration: 00:00:01.0416746
+2026-08-12 11:59:42.772 [INFO] Expected X = 0.000 g
+2026-08-12 11:59:42.772 [INFO] Measured X = 0.000 g
+2026-08-12 11:59:42.772 [INFO] Expected Y = 0.000 g
+2026-08-12 11:59:42.772 [INFO] Measured Y = 0.000 g
+2026-08-12 11:59:42.772 [INFO] Expected Z = 1.000 g
+2026-08-12 11:59:42.772 [INFO] Measured Z = 0.940 g
+2026-08-12 11:59:42.772 [INFO] Axis Tolerance = 0.100 g
+2026-08-12 11:59:42.772 [INFO] ACC_003 : PASS
+2026-08-12 11:59:42.772 [INFO] JsonFile: Accelerometer_ACC_003_2026-08-12_11-59-42-768_PASS.json
+2026-08-12 11:59:42.823 [INFO] 
+2026-08-12 11:59:42.823 [INFO] PDF generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260812-115931\Accelerometer\ACCEL-20260812-115939\Accelerometer_Test_Report_ACC-2026-08-12_11-59-39_PASS.pdf
+2026-08-12 11:59:42.876 [INFO] Excel generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260812-115931\Accelerometer\ACCEL-20260812-115939\Accelerometer_Test_Report_ACC-2026-08-12_11-59-39_PASS.xlsx
+2026-08-12 11:59:42.876 [INFO] 
+2026-08-12 11:59:42.876 [INFO] Session summary : Total=3, Passed=3, Failed=0
+2026-08-12 11:59:42.876 [INFO] Session summary JSON saved : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260812-115931\Accelerometer\ACCEL-20260812-115939\AccelerometerSession_ACC-2026-08-12_11-59-39_PASS.json
+2026-08-12 11:59:42.876 [INFO] End Time : 2026-08-12 11:59:42.773
+2026-08-12 11:59:42.876 [INFO] Accelerometer session completed.
