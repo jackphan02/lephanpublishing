@@ -1,0 +1,15 @@
+{
+  "TestTime": "2026-08-12T11:59:38.4431696-07:00",
+  "TestType": "BATTERY_TEST_LOW",
+  "TestCaseId": "BAT_002",
+  "TestName": "Low Battery Test",
+  "ExpectedVoltage": 2.8,
+  "ActualBatteryVoltage": 2.5,
+  "ExpectedStatus": "LOW",
+  "ActualBatteryStatus": "LOW",
+  "VoltageTolerance": 0.2,
+  "IsPass": false,
+  "ErrorMessage": "Expected[LOW, 2.80V], Actual[LOW, 2.50V]",
+  "ResultText": "FAIL",
+  "ActualState": "BATTERY_STATE_LOW"
+}

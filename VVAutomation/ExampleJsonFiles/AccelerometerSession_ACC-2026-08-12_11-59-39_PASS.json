@@ -1,0 +1,42 @@
+{
+  "FileType": "AccelerometerTestSessionSummaryFile",
+  "JsonFormatVersion": "1.0.0",
+  "SessionId": "ACC-2026-08-12_11-59-39",
+  "ProjectName": "V&V Automation Test Practice Demo",
+  "TestSuiteName": "Accelerometer Verification Test",
+  "DeviceUnderTest": "STM32 Accelerometer Demo",
+  "DutSerialNumber": "DEMO-DUT-001",
+  "FirmwareVersion": "1.0.0",
+  "OperatorName": "Jack Phan",
+  "StartTime": "2026-08-12T11:59:39.6680767-07:00",
+  "EndTime": "2026-08-12T11:59:42.7730178-07:00",
+  "OverallResult": "PASS",
+  "TotalTests": 3,
+  "PassedTests": 3,
+  "FailedTests": 0,
+  "IsCancelled": false,
+  "SessionError": "",
+  "Tests": [
+    {
+      "TestCaseId": "ACC_001",
+      "TestName": "X +1G",
+      "Result": "PASS",
+      "TestTime": "2026-08-12T11:59:40.6948362-07:00",
+      "JsonFile": "Accelerometer_ACC_001_2026-08-12_11-59-40-694_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_002",
+      "TestName": "Y +1G",
+      "Result": "PASS",
+      "TestTime": "2026-08-12T11:59:41.7247779-07:00",
+      "JsonFile": "Accelerometer_ACC_002_2026-08-12_11-59-41-724_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_003",
+      "TestName": "Z +1G",
+      "Result": "PASS",
+      "TestTime": "2026-08-12T11:59:42.7686019-07:00",
+      "JsonFile": "Accelerometer_ACC_003_2026-08-12_11-59-42-768_PASS.json"
+    }
+  ]
+}

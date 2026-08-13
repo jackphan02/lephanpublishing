@@ -175,6 +175,17 @@
         .excel-buttons .report-button {
             width: 100%;
             text-align: center;
+        }  
+        
+        .json-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }    
+        
+        .json-buttons .report-button {
+            width: 100%;
+            text-align: center;
         }        
 
         .placeholder {
@@ -431,20 +442,88 @@
                 <h3>JSON Test Data</h3>
 
                 <p>
-                    Structured JSON output provides machine-readable test
-                    information for integration with additional automation,
-                    databases, or analysis tools.
+                    Auto-generated JSON files provide machine-readable test results
+                    for integration with other software, databases, automated analysis,
+                    and traceability systems.
                 </p>
 
-                <div class="file-example">
-{
-  "TestCaseId": "ACC_001",
-  "TestName": "X +1G",
-  "Result": "PASS",
-  "ExpectedXG": 1.0,
-  "ActualXG": 1.0,
-  "AxisGTolerance": 0.1
-}
+                <p>
+                    Select an example:
+                </p>
+
+
+                <!-- Temperature -->
+
+                <div class="json-group">
+
+                    <strong>Temperature</strong>
+
+                    <div class="json-buttons">
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/TemperatureSession_TEMP-2026-08-12_11-59-31_PASS.json"
+                        target="_blank">
+                            Session JSON - PASS
+                        </a>
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/Temperature_TEMP_001_2026-08-12_11-59-32-630_PASS.json"
+                        target="_blank">
+                            Single-Test JSON - PASS
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Battery -->
+
+                <div class="json-group">
+
+                    <strong>Battery</strong>
+
+                    <div class="json-buttons">
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/BatterySession_BATT-2026-08-12_11-59-36_FAIL.json"
+                        target="_blank">
+                            Session JSON - FAIL
+                        </a>
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/Battery_BAT_002_2026-08-12_11-59-38-443_FAIL.json"
+                        target="_blank">
+                            Single-Test JSON - FAIL
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Accelerometer -->
+
+                <div class="json-group">
+
+                    <strong>Accelerometer</strong>
+
+                    <div class="json-buttons">
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/AccelerometerSession_ACC-2026-08-12_11-59-39_PASS.json"
+                        target="_blank">
+                            Session JSON - PASS
+                        </a>
+
+                        <a class="report-button"
+                        href="ExampleJsonFiles/Accelerometer_ACC_001_2026-08-12_11-59-40-694_PASS.json"
+                        target="_blank">
+                            Single-Test JSON - PASS
+                        </a>
+
+                    </div>
+
                 </div>
 
             </div>

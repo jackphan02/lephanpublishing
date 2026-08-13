@@ -1,0 +1,42 @@
+{
+  "FileType": "BatteryTestSessionSummaryFile",
+  "JsonFormatVersion": "1.0.0",
+  "SessionId": "BATT-2026-08-12_11-59-36",
+  "ProjectName": "V&V Automation Test Practice Demo",
+  "TestSuiteName": "Battery Verification Test",
+  "DeviceUnderTest": "STM32 Battery Demo",
+  "DutSerialNumber": "DEMO-DUT-001",
+  "FirmwareVersion": "1.0.0",
+  "OperatorName": "Jack Phan",
+  "StartTime": "2026-08-12T11:59:36.3140298-07:00",
+  "EndTime": "2026-08-12T11:59:39.5221309-07:00",
+  "OverallResult": "FAIL",
+  "TotalTests": 3,
+  "PassedTests": 2,
+  "FailedTests": 1,
+  "IsCancelled": false,
+  "SessionError": "",
+  "Tests": [
+    {
+      "TestCaseId": "BAT_001",
+      "TestName": "Normal Battery Test",
+      "Result": "PASS",
+      "TestTime": "2026-08-12T11:59:37.3785766-07:00",
+      "JsonFile": "Battery_BAT_001_2026-08-12_11-59-37-378_PASS.json"
+    },
+    {
+      "TestCaseId": "BAT_002",
+      "TestName": "Low Battery Test",
+      "Result": "FAIL",
+      "TestTime": "2026-08-12T11:59:38.4431696-07:00",
+      "JsonFile": "Battery_BAT_002_2026-08-12_11-59-38-443_FAIL.json"
+    },
+    {
+      "TestCaseId": "BAT_003",
+      "TestName": "Critical Battery Test",
+      "Result": "PASS",
+      "TestTime": "2026-08-12T11:59:39.5183516-07:00",
+      "JsonFile": "Battery_BAT_003_2026-08-12_11-59-39-518_PASS.json"
+    }
+  ]
+}

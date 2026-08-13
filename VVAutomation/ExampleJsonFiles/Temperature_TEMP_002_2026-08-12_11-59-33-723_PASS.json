@@ -1,0 +1,16 @@
+{
+  "TestTime": "2026-08-12T11:59:33.7236741-07:00",
+  "TestType": "TEMP_TEST_50C",
+  "TestCaseId": "TEMP_002",
+  "TestName": "50C Normal Test",
+  "ExpectedTemperature": 50,
+  "ActualTemperature": 49.9,
+  "ExpectedStatus": "WARM",
+  "ActualTemperatureStatus": "WARM",
+  "TemperatureTolerance": 0.5,
+  "IsPass": true,
+  "ErrorMessage": "",
+  "ResultText": "PASS",
+  "ActualError": "TEMP_ERROR_NONE",
+  "ActualState": "TEMP_STATE_NORMAL"
+}

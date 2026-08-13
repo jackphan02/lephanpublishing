@@ -1,0 +1,15 @@
+{
+  "TestTime": "2026-08-12T11:59:39.5183516-07:00",
+  "TestType": "BATTERY_TEST_CRITICAL",
+  "TestCaseId": "BAT_003",
+  "TestName": "Critical Battery Test",
+  "ExpectedVoltage": 2.4,
+  "ActualBatteryVoltage": 2.4,
+  "ExpectedStatus": "CRITICAL",
+  "ActualBatteryStatus": "CRITICAL",
+  "VoltageTolerance": 0.2,
+  "IsPass": true,
+  "ErrorMessage": "",
+  "ResultText": "PASS",
+  "ActualState": "BATTERY_STATE_CRITICAL"
+}

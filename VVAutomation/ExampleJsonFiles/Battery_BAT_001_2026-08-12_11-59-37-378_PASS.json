@@ -1,0 +1,15 @@
+{
+  "TestTime": "2026-08-12T11:59:37.3785766-07:00",
+  "TestType": "BATTERY_TEST_NORMAL",
+  "TestCaseId": "BAT_001",
+  "TestName": "Normal Battery Test",
+  "ExpectedVoltage": 3.8,
+  "ActualBatteryVoltage": 3.8,
+  "ExpectedStatus": "NORMAL",
+  "ActualBatteryStatus": "NORMAL",
+  "VoltageTolerance": 0.2,
+  "IsPass": true,
+  "ErrorMessage": "",
+  "ResultText": "PASS",
+  "ActualState": "BATTERY_STATE_NORMAL"
+}

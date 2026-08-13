@@ -1,0 +1,16 @@
+{
+  "TestTime": "2026-08-12T11:59:41.7247779-07:00",
+  "TestType": "ACCELEROMETER_TEST_Y_POSITIVE_1G",
+  "TestCaseId": "ACC_002",
+  "TestName": "Y +1G",
+  "ExpectedXG": 0,
+  "ExpectedYG": 1,
+  "ExpectedZG": 0,
+  "ActualXG": 0,
+  "ActualYG": 0.92,
+  "ActualZG": 0,
+  "AxisGTolerance": 0.1,
+  "IsPass": true,
+  "ErrorMessage": "",
+  "ResultText": "PASS"
+}
