@@ -776,71 +776,37 @@
 
     </section>
 
-
-    <!-- Result Organization -->
-
-    <section class="section">
-
-        <h2>Organized Test Evidence</h2>
-
-        <p>
-            Generated files are organized by test session so the complete
-            evidence from a verification run can be reviewed together.
-        </p>
-
-        <div class="file-example">
-VVTestResults/
-│
-└── AllTests/
-    │
-    └── VVALL-20260811-103428/
-        │
-        ├── Temperature/
-        │     ├── PDF Report
-        │     ├── Excel Report
-        │     └── Session JSON
-        │
-        ├── Battery/
-        │     ├── PDF Report
-        │     ├── Excel Report
-        │     └── Session JSON
-        │
-        ├── Accelerometer/
-        │     ├── PDF Report
-        │     ├── Excel Report
-        │     └── Session JSON
-        │
-        └── All V&amp;V Session Summary
-        </div>
-
-    </section>
-
-
-    <!-- Traceability -->
+    <!-- Verification Traceability -->
 
     <section class="section">
 
         <h2>Verification Traceability</h2>
 
         <p>
-            The generated reports provide an automated record of each
-            verification execution. Typical recorded information includes:
+            The V&amp;V Automation framework automatically captures verification
+            evidence during each test execution, providing consistent and traceable
+            records from individual test cases through the complete V&amp;V session.
         </p>
 
         <div class="evidence-list">
 
             Test session identifier<br>
-            Test case identifier<br>
-            Test name<br>
+            Test case identifier and test name<br>
             Execution timestamp<br>
-            Expected value or state<br>
-            Measured value<br>
-            Acceptance tolerance<br>
+            Expected value or expected state<br>
+            Measured value or device response<br>
+            Acceptance criteria and tolerance<br>
             PASS / FAIL result<br>
             Test-suite summary<br>
             Overall V&amp;V session result
 
         </div>
+
+        <p>
+            This automated record helps reduce manual documentation effort and
+            provides organized verification evidence for engineering review,
+            troubleshooting, and project traceability.
+        </p>
 
     </section>
 
