@@ -260,6 +260,8 @@
         .evidence-list {
             line-height: 1.9;
             color: #444;
+            padding-left: 24px;
+            margin: 15px 0 20px;
         }
 
         .button-row {
@@ -788,19 +790,17 @@
             records from individual test cases through the complete V&amp;V session.
         </p>
 
-        <div class="evidence-list">
-
-            Test session identifier<br>
-            Test case identifier and test name<br>
-            Execution timestamp<br>
-            Expected value or expected state<br>
-            Measured value or device response<br>
-            Acceptance criteria and tolerance<br>
-            PASS / FAIL result<br>
-            Test-suite summary<br>
-            Overall V&amp;V session result
-
-        </div>
+        <ul class="evidence-list">
+            <li>Test session identifier</li>
+            <li>Test case identifier and test name</li>
+            <li>Execution timestamp</li>
+            <li>Expected value or expected state</li>
+            <li>Measured value or device response</li>
+            <li>Acceptance criteria and tolerance</li>
+            <li>PASS / FAIL result</li>
+            <li>Test-suite summary</li>
+            <li>Overall V&amp;V session result</li>
+        </ul>
 
         <p>
             This automated record helps reduce manual documentation effort and
@@ -810,29 +810,33 @@
 
     </section>
 
-
-    <!-- Custom Reporting -->
+    <!-- Adaptable V&V Reporting -->
 
     <section class="section">
 
-        <h2>Adaptable Reporting</h2>
+        <h2>Adaptable V&amp;V Reporting</h2>
 
         <p>
-            Report content and format can be adapted to project-specific
-            requirements. Additional information such as device serial
-            number, firmware version, operator name, project name, test
-            requirement identifiers, or approval information can be added
-            as required.
+            Report content and output formats can be adapted to project-specific
+            verification and documentation requirements. Information such as device
+            serial number, firmware version, operator name, project name, test
+            requirement identifiers, hardware configuration, and approval information
+            can be included as required.
         </p>
 
         <p>
-            This allows the same V&amp;V automation framework to support
-            different products and verification processes while retaining
-            consistent automated test execution and evidence generation.
+            Test criteria, recorded results, and report content can also be tailored
+            to the product under test while maintaining a consistent automated
+            V&amp;V workflow.
+        </p>
+
+        <p>
+            This flexibility allows the V&amp;V Automation framework to support
+            different embedded products and verification processes while providing
+            consistent test execution, traceability, and automated evidence generation.
         </p>
 
     </section>
-
 
     <!-- Navigation -->
 
