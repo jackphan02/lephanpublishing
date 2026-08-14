@@ -689,52 +689,76 @@
 
     </section>
 
-
-    <!-- Session Summary -->
+    <!-- V&V Session Summary -->
 
     <section class="vv-session-summary">
 
         <h2>V&amp;V Session Summary</h2>
 
         <p>
-            The <strong>All V&amp;V Tests</strong> workflow runs the Temperature,
-            Battery, and Accelerometer verification suites in sequence and generates
-            the corresponding result files for each test suite.
+            The <strong>All V&amp;V Tests</strong> workflow coordinates the complete
+            verification session across the Temperature, Battery, and Accelerometer
+            test suites. The framework manages test-environment validation, session
+            initialization, configurable test execution, embedded-hardware communication,
+            automatic PASS / FAIL evaluation, and verification evidence generation.
         </p>
 
         <p>
-            After all test suites have completed, the workflow creates a higher-level
-            V&amp;V session summary that combines the results from all three suites
-            and reports the final overall result.
+            During each test suite, test criteria are loaded and the enabled test cases
+            are executed automatically. The PC application sends test commands to the
+            embedded hardware, receives and decodes the device responses, evaluates the
+            measured results against the configured acceptance criteria, and records the
+            results for traceability.
         </p>
 
-        <!-- All V&V Tests Flowchart -->
+        <!-- All V&V Tests Overview -->
         <div class="vv-flowchart-container">
             <img
-                src="images/VVAllTestFlowchart.png"
-                alt="All V&V Tests workflow showing Temperature, Battery, and Accelerometer verification, generated report files, V&V session summary, and overall PASS or FAIL result."
+                src="images/VVAllTests_Overview.png"
+                alt="V&V Automation workflow showing test environment validation, session initialization, Temperature, Battery and Accelerometer verification, embedded hardware communication, automatic PASS or FAIL evaluation, report generation, and overall V&V session result."
                 class="vv-flowchart-image">
         </div>
 
         <p>
             Each verification suite automatically generates
-            <strong>PDF, Excel, JSON, and log files</strong>.
-            The V&amp;V Session Summary then generates a
-            <strong>Session JSON</strong> file containing the combined results.
+            <strong>PDF, Excel, JSON, and log files</strong> containing the test
+            results and execution evidence. After all test suites have completed,
+            the framework consolidates the suite results into a higher-level
+            <strong>V&amp;V Session Summary</strong>.
+        </p>
+
+        <p>
+            The session summary provides the test counts and PASS / FAIL status for
+            each verification suite and determines the final
+            <strong>Overall Result</strong> for the complete V&amp;V execution.
+            A Session JSON file is also generated to provide a machine-readable
+            record of the complete verification session.
         </p>
 
         <div class="session-summary-box">
+
             <strong>Session:</strong> VVALL-20260811-103428<br>
+
             <strong>Temperature Verification</strong>
-            &nbsp; Total Tests: 6 &nbsp; Passed: 6 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
+            &nbsp; Total Tests: 6
+            &nbsp; Passed: 6
+            &nbsp; Failed: 0
+            &nbsp; Result: PASS<br>
 
             <strong>Battery Verification</strong>
-            &nbsp; Total Tests: 4 &nbsp; Passed: 4 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
+            &nbsp; Total Tests: 4
+            &nbsp; Passed: 4
+            &nbsp; Failed: 0
+            &nbsp; Result: PASS<br>
 
             <strong>Accelerometer Verification</strong>
-            &nbsp; Total Tests: 3 &nbsp; Passed: 3 &nbsp; Failed: 0 &nbsp; Result: PASS<br>
+            &nbsp; Total Tests: 3
+            &nbsp; Passed: 3
+            &nbsp; Failed: 0
+            &nbsp; Result: PASS<br>
 
             <strong>Overall Result:</strong> PASS
+
         </div>
 
     </section>
