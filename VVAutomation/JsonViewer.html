@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>V&amp;V JSON Report | LePhan Publishing</title>
+    <title>V&amp;V Report Viewer | LePhan Publishing</title>
 
     <style>
 
@@ -60,13 +60,13 @@
             font-size: 28px;
         }
 
-        .json-file-name {
+        .file-name {
             margin-bottom: 18px;
             color: #555;
             font-size: 14px;
         }
 
-        .json-content {
+        .file-content {
             font-family: Consolas, "Courier New", monospace;
             font-size: 16px;
             line-height: 1.6;
@@ -135,18 +135,18 @@
 
     <section class="section">
 
-        <h1>V&amp;V JSON Report</h1>
+        <h1 id="viewerTitle">V&amp;V Report</h1>
 
-        <div class="json-file-name" id="fileName">
-            Loading JSON report...
+        <div class="file-name" id="fileName">
+            Loading report...
         </div>
 
-        <pre class="json-content" id="jsonContent">Loading...</pre>
+        <pre class="file-content" id="fileContent">Loading...</pre>
 
         <div class="button-row">
 
             <a class="button"
-            href="javascript:history.back()">
+               href="javascript:history.back()">
                 &larr; Back to Sample Reports
             </a>
 
@@ -169,50 +169,98 @@
     const parameters = new URLSearchParams(window.location.search);
 
     const file = parameters.get("file");
+    const type = parameters.get("type") || "json";
 
+    const viewerTitle = document.getElementById("viewerTitle");
     const fileName = document.getElementById("fileName");
-    const jsonContent = document.getElementById("jsonContent");
+    const fileContent = document.getElementById("fileContent");
 
 
     if (file) {
 
         fileName.textContent = file;
 
-        fetch("ExampleJsonFiles/" + file)
+        let filePath;
 
-            .then(response => {
+        if (type === "log") {
 
-                if (!response.ok) {
-                    throw new Error("Unable to load JSON file.");
-                }
+            viewerTitle.textContent = "V&V Execution Log";
 
-                return response.json();
+            filePath = "ExampleLogFiles/" + file;
 
-            })
+            fetch(filePath)
 
-            .then(data => {
+                .then(response => {
 
-                jsonContent.textContent =
-                    JSON.stringify(data, null, 4);
+                    if (!response.ok) {
+                        throw new Error("Unable to load log file.");
+                    }
 
-            })
+                    return response.text();
 
-            .catch(error => {
+                })
 
-                jsonContent.textContent =
-                    "Unable to load the JSON report.";
+                .then(data => {
 
-                jsonContent.classList.add("error");
+                    fileContent.textContent = data;
 
-            });
+                })
+
+                .catch(error => {
+
+                    fileContent.textContent =
+                        "Unable to load the execution log.";
+
+                    fileContent.classList.add("error");
+
+                });
+
+        }
+        else {
+
+            viewerTitle.textContent = "V&V JSON Report";
+
+            filePath = "ExampleJsonFiles/" + file;
+
+            fetch(filePath)
+
+                .then(response => {
+
+                    if (!response.ok) {
+                        throw new Error("Unable to load JSON file.");
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    fileContent.textContent =
+                        JSON.stringify(data, null, 4);
+
+                })
+
+                .catch(error => {
+
+                    fileContent.textContent =
+                        "Unable to load the JSON report.";
+
+                    fileContent.classList.add("error");
+
+                });
+
+        }
 
     }
     else {
 
-        fileName.textContent = "No JSON file selected.";
+        viewerTitle.textContent = "V&V Report Viewer";
 
-        jsonContent.textContent =
-            "Please select a JSON report from the Sample Reports page.";
+        fileName.textContent = "No file selected.";
+
+        fileContent.textContent =
+            "Please select a report from the Sample Reports page.";
 
     }
 
