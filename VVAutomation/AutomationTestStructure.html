@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>V&V Automation Test Structure | LePhan Publishing</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #e9f6ea;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           Header
+           ============================== */
+
+        header {
+            background-color: #1f3b5b;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==============================
+           Page
+           ============================== */
+
+        main {
+            max-width: 1100px;
+            margin: 36px auto;
+            padding: 0 24px 50px;
+        }
+
+        .page-title {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 34px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .page-title h1 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: #1f3b5b;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            margin-bottom: 0;
+            font-size: 17px;
+        }
+
+        /* ==============================
+           Sections
+           ============================== */
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 34px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #1f3b5b;
+            font-size: 25px;
+        }
+
+        .section h3 {
+            color: #31577e;
+            margin-top: 26px;
+        }
+
+        .section p {
+            font-size: 16px;
+        }
+
+        /* ==============================
+           Structure / Flow Blocks
+           ============================== */
+
+        .structure-box {
+            margin-top: 22px;
+            padding: 24px;
+            background-color: #f7f9fb;
+            border: 1px solid #d7dde3;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .structure-box pre {
+            margin: 0;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 16px;
+            line-height: 1.55;
+            color: #222;
+            white-space: pre;
+        }
+
+        .flow {
+            max-width: 760px;
+            margin: 28px auto 10px;
+        }
+
+        .flow-step {
+            padding: 14px 18px;
+            border: 1px solid #cdd7df;
+            border-radius: 7px;
+            background-color: #f7f9fb;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 25px;
+            line-height: 1.2;
+            color: #57945c;
+            padding: 5px 0;
+        }
+
+        /* ==============================
+           Detail Cards
+           ============================== */
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .detail-card {
+            background-color: #f7f9fb;
+            border: 1px solid #d7dde3;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .detail-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1f3b5b;
+            font-size: 19px;
+        }
+
+        .detail-card p {
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        /* ==============================
+           Evidence List
+           ============================== */
+
+        .evidence-list {
+            margin-top: 18px;
+            padding-left: 24px;
+        }
+
+        .evidence-list li {
+            margin-bottom: 9px;
+            font-size: 16px;
+        }
+
+        /* ==============================
+           Buttons
+           ============================== */
+
+        .button-row {
+            margin-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 20px;
+
+            background-color: #66a96b;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+
+            transition: background-color 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #57945c;
+        }
+
+        /* ==============================
+           Footer
+           ============================== */
+
+        footer {
+            background-color: #1f3b5b;
+            color: white;
+            text-align: center;
+            padding: 20px 24px;
+            font-size: 14px;
+        }
+
+        /* ==============================
+           Responsive
+           ============================== */
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 14px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title,
+            .section {
+                padding: 24px 22px;
+            }
+
+            .structure-box pre {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Header
+         ========================================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <div class="site-title">
+                LePhan Publishing
+            </div>
+
+            <nav aria-label="Main navigation">
+
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/index.html#vv-automation">V&amp;V Automation</a></li>
+                    <li><a href="/index.html#software-demos">Software Demos</a></li>
+                    <li><a href="/index.html#books">Books</a></li>
+                    <li><a href="/ContactInfo/ContactPage.html">Contact</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         Main Content
+         ========================================== -->
+
+    <main>
+
+        <!-- Page Introduction -->
+
+        <section class="page-title">
+
+            <h1>V&amp;V Automation Test Structure</h1>
+
+            <p>
+                The V&amp;V Automation framework combines a Windows-based test
+                application, configurable test criteria, serial communication,
+                embedded firmware test execution, automated result validation,
+                and report generation into a repeatable verification workflow.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             Software Structure
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Automation Software Structure</h2>
+
+            <p>
+                The automation framework is separated into PC application,
+                configurable test criteria, STM32 firmware, and generated test
+                evidence. This separation allows new test suites and device
+                interfaces to be added while retaining a common automation
+                architecture.
+            </p>
+
+            <div class="structure-box">
+
+<pre>V&amp;V Automation
+│
+├── PC Application
+│   │
+│   ├── Communication
+│   │   ├── Serial Interface
+│   │   ├── Packet Construction
+│   │   └── Response Processing
+│   │
+│   ├── Temperature Tests
+│   ├── Battery Tests
+│   ├── Accelerometer Tests
+│   ├── All V&amp;V Tests
+│   │
+│   ├── Reporting
+│   │   ├── JSON
+│   │   ├── PDF
+│   │   └── Excel
+│   │
+│   └── Logging
+│
+├── Test Criteria
+│   ├── TemperatureCriteria.json
+│   ├── BatteryCriteria.json
+│   └── AccelerometerCriteria.json
+│
+├── STM32 Firmware
+│   │
+│   ├── Communication Protocol
+│   ├── Command Processing
+│   ├── Temperature Test Handler
+│   ├── Battery Test Handler
+│   └── Accelerometer Test Handler
+│
+└── Test Results
+    ├── Individual Test JSON
+    ├── Session JSON
+    ├── PDF Report
+    ├── Excel Report
+    └── Execution Log</pre>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             Major Components
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Major Automation Components</h2>
+
+            <div class="detail-grid">
+
+                <div class="detail-card">
+
+                    <h3>PC Test Application</h3>
+
+                    <p>
+                        The WPF application controls test execution, sends
+                        commands to the embedded target, receives test results,
+                        evaluates acceptance criteria, displays PASS / FAIL
+                        status, and generates verification evidence.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Test Criteria</h3>
+
+                    <p>
+                        Test definitions and acceptance criteria are stored
+                        separately from the test execution logic. Criteria may
+                        include expected values, expected states, tolerances,
+                        test identifiers, and enable settings.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Embedded Firmware</h3>
+
+                    <p>
+                        The STM32 firmware receives test commands, executes the
+                        requested firmware or hardware test operation, captures
+                        the resulting measurements or states, and returns a
+                        structured response to the PC application.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Automated Reporting</h3>
+
+                    <p>
+                        Test results are automatically recorded as structured
+                        JSON evidence and summarized into PDF and Excel reports.
+                        Execution logs provide additional information for
+                        engineering review and troubleshooting.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             Main Test Flow
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Main Automated Test Flow</h2>
+
+            <p>
+                Each automated test follows the same basic execution pattern,
+                allowing different verification suites to use a consistent
+                test framework.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-step">
+                    1. Load Test Criteria
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    2. Select Test Case
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    3. Build Test Request
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    4. Send Request to STM32
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    5. Execute Embedded Firmware Test
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    6. Return Measured Results
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    7. Validate Results Against Acceptance Criteria
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    8. Determine PASS / FAIL
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    9. Save Verification Evidence
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             Run All Tests Flow
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Run All V&amp;V Tests Flow</h2>
+
+            <p>
+                In addition to running individual test suites, the automation
+                application can execute the complete verification sequence in
+                one V&amp;V session.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-step">
+                    Start V&amp;V Test Session
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Run Temperature Tests
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Run Battery Tests
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Run Accelerometer Tests
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Calculate Test Totals
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Determine Overall V&amp;V PASS / FAIL
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    Generate Session Reports and Verification Evidence
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             Generated Evidence
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Generated Verification Evidence</h2>
+
+            <p>
+                Test evidence is generated automatically during execution so
+                that individual results can be traced through the complete
+                verification session.
+            </p>
+
+            <ul class="evidence-list">
+
+                <li>Individual test JSON result files</li>
+
+                <li>Test-suite session JSON summaries</li>
+
+                <li>Complete V&amp;V session summary</li>
+
+                <li>PDF verification reports</li>
+
+                <li>Excel verification reports</li>
+
+                <li>Execution and diagnostic log files</li>
+
+                <li>Test identifiers, timestamps, expected values, measured values, and tolerances</li>
+
+                <li>Individual and overall PASS / FAIL results</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ======================================
+             Result Folder Structure
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Example Test Result Organization</h2>
+
+            <p>
+                When all V&amp;V test suites are executed, generated evidence is
+                organized into one session folder with separate subfolders for
+                each verification area.
+            </p>
+
+            <div class="structure-box">
+
+<pre>VVTestResults
+│
+└── AllTests
+    │
+    └── VVALL-yyyyMMdd-HHmmss
+        │
+        ├── Temperature
+        │   ├── Test JSON Files
+        │   ├── Session JSON
+        │   ├── PDF Report
+        │   └── Excel Report
+        │
+        ├── Battery
+        │   ├── Test JSON Files
+        │   ├── Session JSON
+        │   ├── PDF Report
+        │   └── Excel Report
+        │
+        ├── Accelerometer
+        │   ├── Test JSON Files
+        │   ├── Session JSON
+        │   ├── PDF Report
+        │   └── Excel Report
+        │
+        └── All V&amp;V Session Summary</pre>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             Navigation Buttons
+             ====================================== -->
+
+        <section class="section">
+
+            <h2>Explore the V&amp;V Automation Demo</h2>
+
+            <p>
+                Return to the architecture overview or view examples of the
+                verification reports and test evidence produced by the
+                automation framework.
+            </p>
+
+            <div class="button-row">
+
+                <a class="button"
+                   href="TestArchitecture.html">
+                    ← Test Architecture
+                </a>
+
+                <a class="button"
+                   href="SampleReports.html">
+                    View Sample Reports →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+
+    <footer>
+        &copy; 2026 LePhan Publishing. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
