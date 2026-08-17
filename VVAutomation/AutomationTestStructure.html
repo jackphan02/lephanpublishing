@@ -354,46 +354,85 @@
 
             <div class="structure-box">
 
-<pre>V&amp;V Automation
+<pre>VVAutomation
 │
-├── PC Application
+├── PCApplication/
 │   │
-│   ├── Communication
-│   │   ├── Serial Interface
-│   │   ├── Packet Construction
-│   │   └── Response Processing
+│   ├── MainWindow.xaml
+│   ├── MainWindow.xaml.cs
+│   ├── MainWindowViewModel.cs
 │   │
-│   ├── Temperature Tests
-│   ├── Battery Tests
-│   ├── Accelerometer Tests
-│   ├── All V&amp;V Tests
+│   ├── Communication/
+│   │   ├── SerialService.cs
+│   │   ├── PacketBuilder.cs
+│   │   └── PacketValidator.cs
 │   │
-│   ├── Reporting
-│   │   ├── JSON
-│   │   ├── PDF
-│   │   └── Excel
+│   ├── Temperature/
+│   │   ├── TemperatureTestCase.cs
+│   │   ├── TemperatureTestResult.cs
+│   │   ├── TemperatureTestRunner.cs
+│   │   ├── TemperatureCriteriaLoader.cs
+│   │   └── TemperatureTestSession.cs
 │   │
-│   └── Logging
+│   ├── Battery/
+│   │   ├── BatteryTestCase.cs
+│   │   ├── BatteryTestResult.cs
+│   │   ├── BatteryTestRunner.cs
+│   │   ├── BatteryCriteriaLoader.cs
+│   │   └── BatteryTestSession.cs
+│   │
+│   ├── Accelerometer/
+│   │   ├── AccelerometerTestCase.cs
+│   │   ├── AccelerometerTestResult.cs
+│   │   ├── AccelerometerTestRunner.cs
+│   │   ├── AccelerometerCriteriaLoader.cs
+│   │   └── AccelerometerTestSession.cs
+│   │
+│   ├── AllTests/
+│   │   ├── VVAllTestsControl.cs
+│   │   └── VVAllTestsSession.cs
+│   │
+│   ├── Reporting/
+│   │   ├── JsonWriter.cs
+│   │   ├── PdfWriter.cs
+│   │   ├── ExcelWriter.cs
+│   │   └── ResultFolderManager.cs
+│   │
+│   └── Logging/
+│       └── FileAppLogger.cs
 │
-├── Test Criteria
+├── TestCriteria/
 │   ├── TemperatureCriteria.json
 │   ├── BatteryCriteria.json
 │   └── AccelerometerCriteria.json
 │
-├── STM32 Firmware
+├── STM32Firmware/
 │   │
-│   ├── Communication Protocol
-│   ├── Command Processing
-│   ├── Temperature Test Handler
-│   ├── Battery Test Handler
-│   └── Accelerometer Test Handler
+│   ├── Communication/
+│   │   ├── SerialProtocol.c
+│   │   ├── SerialProtocol.h
+│   │   └── CommandDispatcher.c
+│   │
+│   ├── Temperature/
+│   │   ├── TemperatureTestCase.c
+│   │   ├── TemperatureTestRunner.c
+│   │   └── TemperatureCommandHandler.c
+│   │
+│   ├── Battery/
+│   │   ├── BatteryTestCase.c
+│   │   ├── BatteryTestRunner.c
+│   │   └── BatteryCommandHandler.c
+│   │
+│   └── Accelerometer/
+│       ├── AccelerometerTestCase.c
+│       ├── AccelerometerTestRunner.c
+│       └── AccelerometerCommandHandler.c
 │
-└── Test Results
-    ├── Individual Test JSON
-    ├── Session JSON
-    ├── PDF Report
-    ├── Excel Report
-    └── Execution Log</pre>
+└── TestResults/
+    ├── Temperature/
+    ├── Battery/
+    ├── Accelerometer/
+    └── AllTests/</pre>
 
             </div>
 
