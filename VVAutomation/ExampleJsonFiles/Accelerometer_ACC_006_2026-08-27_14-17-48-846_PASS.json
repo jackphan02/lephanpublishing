@@ -1,0 +1,12 @@
+{
+  "TestTime": "2026-08-27T14:17:48.8466787-07:00",
+  "TestType": "ACCELEROMETER_TEST_CONFIG_READBACK",
+  "TestCaseId": "ACC_006",
+  "TestName": "Configuration Readback",
+  "ExpectedRangeG": 2,
+  "ActualRangeG": 2,
+  "ActualTestStatus": "ACCELEROMETER_TEST_STATUS_PASS",
+  "IsPass": true,
+  "ResponseTimeout": "NO TIMEOUT",
+  "ErrorMessage": ""
+}

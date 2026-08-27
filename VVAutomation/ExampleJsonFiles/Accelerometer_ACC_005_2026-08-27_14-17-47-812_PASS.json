@@ -1,0 +1,12 @@
+{
+  "TestTime": "2026-08-27T14:17:47.8121381-07:00",
+  "TestType": "ACCELEROMETER_TEST_WHO_AM_I",
+  "TestCaseId": "ACC_005",
+  "TestName": "BMA400 WHO_AM_I Test",
+  "ExpectedChipId": "0x90",
+  "ActualChipId": "0x90",
+  "ActualTestStatus": "ACCELEROMETER_TEST_STATUS_PASS",
+  "IsPass": true,
+  "ResponseTimeout": "NO TIMEOUT",
+  "ErrorMessage": ""
+}

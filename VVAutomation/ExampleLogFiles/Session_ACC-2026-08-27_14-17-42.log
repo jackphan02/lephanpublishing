@@ -1,0 +1,137 @@
+2026-08-27 14:17:42.220 [INFO] Criteria File   : C:\MyDocs\ConsultantProject\VVTemperature\VVTemp\bin\Debug\net8.0-windows\TestCriteria\AccelerometerTestCriteria.json
+2026-08-27 14:17:42.221 [INFO] Loaded Tests    : 9
+2026-08-27 14:17:42.221 [INFO] ========================================
+2026-08-27 14:17:42.221 [INFO] Accelerometer test session started.
+2026-08-27 14:17:42.221 [INFO] Session ID      : ACC-2026-08-27_14-17-42
+2026-08-27 14:17:42.221 [INFO] Session Folder  : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Accelerometer\ACCEL-20260827-141742
+2026-08-27 14:17:42.221 [INFO] Operator        : Jack Phan
+2026-08-27 14:17:42.221 [INFO] COM Port        : COM4
+2026-08-27 14:17:42.221 [INFO] Firmware ver.   : 1.0.0
+2026-08-27 14:17:42.221 [INFO] Start Time      : 2026-08-27 14:17:42.220
+2026-08-27 14:17:42.221 [INFO] ========================================
+2026-08-27 14:17:42.221 [INFO] 
+2026-08-27 14:17:42.221 [INFO] ****************************************
+2026-08-27 14:17:42.221 [INFO] Test started : ACC_001 - X +1G
+2026-08-27 14:17:42.221 [INFO] Start time: 2026-08-27 14:17:42.221
+2026-08-27 14:17:42.221 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:43.362 [INFO] End time: 2026-08-27 14:17:43.362
+2026-08-27 14:17:43.362 [INFO] Duration: 00:00:01.1408376
+2026-08-27 14:17:43.365 [INFO] Expected X = 1.000 g
+2026-08-27 14:17:43.365 [INFO] Measured X = 0.000 g
+2026-08-27 14:17:43.365 [INFO] Expected Y = 0.000 g
+2026-08-27 14:17:43.365 [INFO] Measured Y = -0.002 g
+2026-08-27 14:17:43.365 [INFO] Expected Z = 0.000 g
+2026-08-27 14:17:43.365 [INFO] Measured Z = 0.957 g
+2026-08-27 14:17:43.365 [INFO] Axis Tolerance = 0.100 g
+2026-08-27 14:17:43.365 [WARN] ACC_001 : FAIL
+2026-08-27 14:17:43.365 [INFO] JsonFile: Accelerometer_ACC_001_2026-08-27_14-17-43-362_FAIL.json
+2026-08-27 14:17:43.365 [INFO] 
+2026-08-27 14:17:43.365 [INFO] ****************************************
+2026-08-27 14:17:43.365 [INFO] Test started : ACC_002 - Y +1G
+2026-08-27 14:17:43.365 [INFO] Start time: 2026-08-27 14:17:43.365
+2026-08-27 14:17:43.365 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:44.508 [INFO] End time: 2026-08-27 14:17:44.508
+2026-08-27 14:17:44.508 [INFO] Duration: 00:00:01.1423159
+2026-08-27 14:17:44.510 [INFO] Expected X = 0.000 g
+2026-08-27 14:17:44.510 [INFO] Measured X = 0.000 g
+2026-08-27 14:17:44.510 [INFO] Expected Y = 1.000 g
+2026-08-27 14:17:44.510 [INFO] Measured Y = -0.002 g
+2026-08-27 14:17:44.510 [INFO] Expected Z = 0.000 g
+2026-08-27 14:17:44.510 [INFO] Measured Z = 0.957 g
+2026-08-27 14:17:44.510 [INFO] Axis Tolerance = 0.100 g
+2026-08-27 14:17:44.510 [WARN] ACC_002 : FAIL
+2026-08-27 14:17:44.510 [INFO] JsonFile: Accelerometer_ACC_002_2026-08-27_14-17-44-508_FAIL.json
+2026-08-27 14:17:44.510 [INFO] 
+2026-08-27 14:17:44.510 [INFO] ****************************************
+2026-08-27 14:17:44.510 [INFO] Test started : ACC_003 - Z +1G
+2026-08-27 14:17:44.510 [INFO] Start time: 2026-08-27 14:17:44.510
+2026-08-27 14:17:44.510 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:45.652 [INFO] End time: 2026-08-27 14:17:45.652
+2026-08-27 14:17:45.652 [INFO] Duration: 00:00:01.1419854
+2026-08-27 14:17:45.656 [INFO] Expected X = 0.000 g
+2026-08-27 14:17:45.657 [INFO] Measured X = 0.001 g
+2026-08-27 14:17:45.657 [INFO] Expected Y = 0.000 g
+2026-08-27 14:17:45.657 [INFO] Measured Y = -0.001 g
+2026-08-27 14:17:45.657 [INFO] Expected Z = 1.000 g
+2026-08-27 14:17:45.657 [INFO] Measured Z = 0.957 g
+2026-08-27 14:17:45.657 [INFO] Axis Tolerance = 0.100 g
+2026-08-27 14:17:45.657 [INFO] ACC_003 : PASS
+2026-08-27 14:17:45.657 [INFO] JsonFile: Accelerometer_ACC_003_2026-08-27_14-17-45-652_PASS.json
+2026-08-27 14:17:45.657 [INFO] 
+2026-08-27 14:17:45.657 [INFO] ****************************************
+2026-08-27 14:17:45.657 [INFO] Test started : ACC_004 - 1G Magnitude
+2026-08-27 14:17:45.657 [INFO] Start time: 2026-08-27 14:17:45.657
+2026-08-27 14:17:45.657 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:46.782 [INFO] End time: 2026-08-27 14:17:46.782
+2026-08-27 14:17:46.782 [INFO] Duration: 00:00:01.1251889
+2026-08-27 14:17:46.791 [INFO] Expected Magnitude = 1.000 g
+2026-08-27 14:17:46.791 [INFO] Measured Magnitude = 0.957 g
+2026-08-27 14:17:46.791 [INFO] Magnitude Tolerance = 0.100 g
+2026-08-27 14:17:46.791 [INFO] ACC_004 : PASS
+2026-08-27 14:17:46.791 [INFO] JsonFile: Accelerometer_ACC_004_2026-08-27_14-17-46-782_PASS.json
+2026-08-27 14:17:46.791 [INFO] 
+2026-08-27 14:17:46.791 [INFO] ****************************************
+2026-08-27 14:17:46.791 [INFO] Test started : ACC_005 - BMA400 WHO_AM_I Test
+2026-08-27 14:17:46.791 [INFO] Start time: 2026-08-27 14:17:46.791
+2026-08-27 14:17:46.791 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:47.812 [INFO] End time: 2026-08-27 14:17:47.812
+2026-08-27 14:17:47.812 [INFO] Duration: 00:00:01.0206967
+2026-08-27 14:17:47.813 [INFO] Expected Chip ID = 0x90
+2026-08-27 14:17:47.813 [INFO] Actual Chip ID = 0x90
+2026-08-27 14:17:47.813 [INFO] ACC_005 : PASS
+2026-08-27 14:17:47.813 [INFO] JsonFile: Accelerometer_ACC_005_2026-08-27_14-17-47-812_PASS.json
+2026-08-27 14:17:47.813 [INFO] 
+2026-08-27 14:17:47.813 [INFO] ****************************************
+2026-08-27 14:17:47.813 [INFO] Test started : ACC_006 - Configuration Readback
+2026-08-27 14:17:47.813 [INFO] Start time: 2026-08-27 14:17:47.813
+2026-08-27 14:17:47.813 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:48.846 [INFO] End time: 2026-08-27 14:17:48.846
+2026-08-27 14:17:48.846 [INFO] Duration: 00:00:01.0326300
+2026-08-27 14:17:48.849 [INFO] Expected Range = 2 g
+2026-08-27 14:17:48.849 [INFO] Actual Range = 2 g
+2026-08-27 14:17:48.849 [INFO] ACC_006 : PASS
+2026-08-27 14:17:48.849 [INFO] JsonFile: Accelerometer_ACC_006_2026-08-27_14-17-48-846_PASS.json
+2026-08-27 14:17:48.849 [INFO] 
+2026-08-27 14:17:48.849 [INFO] ****************************************
+2026-08-27 14:17:48.849 [INFO] Test started : ACC_007 - Accelerometer Repeatability Test
+2026-08-27 14:17:48.849 [INFO] Start time: 2026-08-27 14:17:48.849
+2026-08-27 14:17:48.849 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:50.383 [INFO] End time: 2026-08-27 14:17:50.383
+2026-08-27 14:17:50.383 [INFO] Duration: 00:00:01.5342008
+2026-08-27 14:17:50.385 [INFO] X Variation = 0.004 g
+2026-08-27 14:17:50.385 [INFO] Y Variation = 0.003 g
+2026-08-27 14:17:50.385 [INFO] Z Variation = 0.007 g
+2026-08-27 14:17:50.385 [INFO] Repeatability Tolerance = 0.100 g
+2026-08-27 14:17:50.385 [INFO] ACC_007 : PASS
+2026-08-27 14:17:50.385 [INFO] JsonFile: Accelerometer_ACC_007_2026-08-27_14-17-50-383_PASS.json
+2026-08-27 14:17:50.385 [INFO] 
+2026-08-27 14:17:50.385 [INFO] ****************************************
+2026-08-27 14:17:50.385 [INFO] Test started : ACC_008 - BMA400 I2C Address
+2026-08-27 14:17:50.385 [INFO] Start time: 2026-08-27 14:17:50.385
+2026-08-27 14:17:50.385 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:51.418 [INFO] End time: 2026-08-27 14:17:51.418
+2026-08-27 14:17:51.418 [INFO] Duration: 00:00:01.0325271
+2026-08-27 14:17:51.420 [INFO] Expected I2C Address = 0x15
+2026-08-27 14:17:51.420 [INFO] Actual I2C Address = 0x15
+2026-08-27 14:17:51.420 [INFO] ACC_008 : PASS
+2026-08-27 14:17:51.420 [INFO] JsonFile: Accelerometer_ACC_008_2026-08-27_14-17-51-418_PASS.json
+2026-08-27 14:17:51.420 [INFO] 
+2026-08-27 14:17:51.420 [INFO] ****************************************
+2026-08-27 14:17:51.420 [INFO] Test started : ACC_009 - I2C No-Hang
+2026-08-27 14:17:51.420 [INFO] Start time: 2026-08-27 14:17:51.420
+2026-08-27 14:17:51.420 [INFO] Sending VV accelerometer test command, 0x84
+2026-08-27 14:17:52.450 [INFO] End time: 2026-08-27 14:17:52.450
+2026-08-27 14:17:52.450 [INFO] Duration: 00:00:01.0302194
+2026-08-27 14:17:52.452 [INFO] Expected Status = ACCELEROMETER_TEST_STATUS_PASS
+2026-08-27 14:17:52.452 [INFO] Actual Status = ACCELEROMETER_TEST_STATUS_INVALID_SETUP
+2026-08-27 14:17:52.452 [WARN] ACC_009 : FAIL
+2026-08-27 14:17:52.452 [INFO] JsonFile: Accelerometer_ACC_009_2026-08-27_14-17-52-450_FAIL.json
+2026-08-27 14:17:52.473 [INFO] 
+2026-08-27 14:17:52.473 [INFO] ****************************************
+2026-08-27 14:17:52.473 [INFO] PDF generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Accelerometer\ACCEL-20260827-141742\Accelerometer_Test_Report_ACC-2026-08-27_14-17-42_FAIL.pdf
+2026-08-27 14:17:52.489 [INFO] Excel generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Accelerometer\ACCEL-20260827-141742\Accelerometer_Test_Report_ACC-2026-08-27_14-17-42_FAIL.xlsx
+2026-08-27 14:17:52.489 [INFO] 
+2026-08-27 14:17:52.489 [INFO] Session summary : Total=9, Passed=6, Failed=3
+2026-08-27 14:17:52.489 [INFO] Session summary JSON saved : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Accelerometer\ACCEL-20260827-141742\AccelerometerSession_ACC-2026-08-27_14-17-42_FAIL.json
+2026-08-27 14:17:52.489 [INFO] End Time : 2026-08-27 14:17:52.452
+2026-08-27 14:17:52.489 [INFO] Accelerometer session completed.

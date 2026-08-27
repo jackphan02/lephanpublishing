@@ -1,0 +1,14 @@
+{
+  "TestTime": "2026-08-27T14:17:50.3834928-07:00",
+  "TestType": "ACCELEROMETER_TEST_REPEATABILITY",
+  "TestCaseId": "ACC_007",
+  "TestName": "Accelerometer Repeatability Test",
+  "ActualXVariationG": 0.00390625,
+  "ActualYVariationG": 0.0029296875,
+  "ActualZVariationG": 0.0068359375,
+  "RepeatabilityToleranceG": 0.1,
+  "ActualTestStatus": "ACCELEROMETER_TEST_STATUS_PASS",
+  "IsPass": true,
+  "ResponseTimeout": "NO TIMEOUT",
+  "ErrorMessage": ""
+}

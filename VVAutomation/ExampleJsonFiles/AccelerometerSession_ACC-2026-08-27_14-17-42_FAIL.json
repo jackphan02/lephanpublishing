@@ -1,0 +1,84 @@
+{
+  "FileType": "AccelerometerTestSessionSummaryFile",
+  "JsonFormatVersion": "1.0.0",
+  "SessionId": "ACC-2026-08-27_14-17-42",
+  "ProjectName": "V&V Automation Test Practice Demo",
+  "TestSuiteName": "Accelerometer Verification Test",
+  "DeviceUnderTest": "STM32 Accelerometer Demo",
+  "DutSerialNumber": "DEMO-DUT-001",
+  "FirmwareVersion": "1.0.0",
+  "OperatorName": "Jack Phan",
+  "StartTime": "2026-08-27T14:17:42.2201763-07:00",
+  "EndTime": "2026-08-27T14:17:52.4529246-07:00",
+  "OverallResult": "FAIL",
+  "TotalTests": 9,
+  "PassedTests": 6,
+  "FailedTests": 3,
+  "IsCancelled": false,
+  "SessionError": "",
+  "Tests": [
+    {
+      "TestCaseId": "ACC_001",
+      "TestName": "X +1G",
+      "Result": "FAIL",
+      "TestTime": "2026-08-27T14:17:43.3624025-07:00",
+      "JsonFile": "Accelerometer_ACC_001_2026-08-27_14-17-43-362_FAIL.json"
+    },
+    {
+      "TestCaseId": "ACC_002",
+      "TestName": "Y +1G",
+      "Result": "FAIL",
+      "TestTime": "2026-08-27T14:17:44.5081343-07:00",
+      "JsonFile": "Accelerometer_ACC_002_2026-08-27_14-17-44-508_FAIL.json"
+    },
+    {
+      "TestCaseId": "ACC_003",
+      "TestName": "Z +1G",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:45.6524277-07:00",
+      "JsonFile": "Accelerometer_ACC_003_2026-08-27_14-17-45-652_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_004",
+      "TestName": "1G Magnitude",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:46.7823898-07:00",
+      "JsonFile": "Accelerometer_ACC_004_2026-08-27_14-17-46-782_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_005",
+      "TestName": "BMA400 WHO_AM_I Test",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:47.8121381-07:00",
+      "JsonFile": "Accelerometer_ACC_005_2026-08-27_14-17-47-812_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_006",
+      "TestName": "Configuration Readback",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:48.8466787-07:00",
+      "JsonFile": "Accelerometer_ACC_006_2026-08-27_14-17-48-846_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_007",
+      "TestName": "Accelerometer Repeatability Test",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:50.3834928-07:00",
+      "JsonFile": "Accelerometer_ACC_007_2026-08-27_14-17-50-383_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_008",
+      "TestName": "BMA400 I2C Address",
+      "Result": "PASS",
+      "TestTime": "2026-08-27T14:17:51.4184566-07:00",
+      "JsonFile": "Accelerometer_ACC_008_2026-08-27_14-17-51-418_PASS.json"
+    },
+    {
+      "TestCaseId": "ACC_009",
+      "TestName": "I2C No-Hang",
+      "Result": "FAIL",
+      "TestTime": "2026-08-27T14:17:52.4508286-07:00",
+      "JsonFile": "Accelerometer_ACC_009_2026-08-27_14-17-52-450_FAIL.json"
+    }
+  ]
+}

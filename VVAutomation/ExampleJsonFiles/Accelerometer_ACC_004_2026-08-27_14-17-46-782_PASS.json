@@ -1,0 +1,13 @@
+{
+  "TestTime": "2026-08-27T14:17:46.7823898-07:00",
+  "TestType": "ACCELEROMETER_TEST_1G_MAGNITUDE",
+  "TestCaseId": "ACC_004",
+  "TestName": "1G Magnitude",
+  "ExpectedMagnitudeG": 1,
+  "ActualMagnitudeG": 0.9570332,
+  "MagnitudeGTolerance": 0.1,
+  "ActualTestStatus": "ACCELEROMETER_TEST_STATUS_PASS",
+  "IsPass": true,
+  "ResponseTimeout": "NO TIMEOUT",
+  "ErrorMessage": ""
+}

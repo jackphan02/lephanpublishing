@@ -1,0 +1,60 @@
+2026-08-27 14:17:38.912 [INFO] Criteria File   : C:\MyDocs\ConsultantProject\VVTemperature\VVTemp\bin\Debug\net8.0-windows\TestCriteria\BatteryTestCriteria.json
+2026-08-27 14:17:38.912 [INFO] Loaded Tests    : 3
+2026-08-27 14:17:38.912 [INFO] ========================================
+2026-08-27 14:17:38.912 [INFO] Battery test session started.
+2026-08-27 14:17:38.912 [INFO] Session ID      : BATT-2026-08-27_14-17-38
+2026-08-27 14:17:38.912 [INFO] Session Folder  : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Battery\BATT-20260827-141738
+2026-08-27 14:17:38.912 [INFO] Operator        : Jack Phan
+2026-08-27 14:17:38.912 [INFO] COM Port        : COM4
+2026-08-27 14:17:38.912 [INFO] Firmware ver.   : 1.0.0
+2026-08-27 14:17:38.912 [INFO] Start Time      : 2026-08-27 14:17:38.910
+2026-08-27 14:17:38.912 [INFO] ========================================
+2026-08-27 14:17:38.913 [INFO] 
+2026-08-27 14:17:38.913 [INFO] ****************************************
+2026-08-27 14:17:38.913 [INFO] Test started : BAT_001 - Normal Battery Test
+2026-08-27 14:17:38.914 [INFO] Start time: 2026-08-27 14:17:38.914
+2026-08-27 14:17:38.914 [INFO] Sending VV battery test command, 0x82
+2026-08-27 14:17:39.969 [INFO] End time: 2026-08-27 14:17:39.969
+2026-08-27 14:17:39.969 [INFO] Duration: 00:00:01.0551464
+2026-08-27 14:17:39.979 [INFO] Expected Status = NORMAL
+2026-08-27 14:17:39.979 [INFO] Actual Status = NORMAL
+2026-08-27 14:17:39.979 [INFO] Expected Voltage = 3.80 V
+2026-08-27 14:17:39.979 [INFO] Actual Voltage = 3.80 V
+2026-08-27 14:17:39.979 [INFO] BAT_001 : PASS
+2026-08-27 14:17:39.979 [INFO] JsonFile: Battery_BAT_001_2026-08-27_14-17-39-971_PASS.json
+2026-08-27 14:17:39.980 [INFO] 
+2026-08-27 14:17:39.980 [INFO] ****************************************
+2026-08-27 14:17:39.980 [INFO] Test started : BAT_002 - Low Battery Test
+2026-08-27 14:17:39.980 [INFO] Start time: 2026-08-27 14:17:39.980
+2026-08-27 14:17:39.980 [INFO] Sending VV battery test command, 0x82
+2026-08-27 14:17:41.047 [INFO] End time: 2026-08-27 14:17:41.047
+2026-08-27 14:17:41.047 [INFO] Duration: 00:00:01.0664246
+2026-08-27 14:17:41.051 [INFO] Expected Status = LOW
+2026-08-27 14:17:41.051 [INFO] Actual Status = LOW
+2026-08-27 14:17:41.051 [INFO] Expected Voltage = 2.80 V
+2026-08-27 14:17:41.051 [INFO] Actual Voltage = 2.50 V
+2026-08-27 14:17:41.051 [WARN] BAT_002 : FAIL
+2026-08-27 14:17:41.051 [INFO] JsonFile: Battery_BAT_002_2026-08-27_14-17-41-047_FAIL.json
+2026-08-27 14:17:41.052 [INFO] 
+2026-08-27 14:17:41.052 [INFO] ****************************************
+2026-08-27 14:17:41.052 [INFO] Test started : BAT_003 - Critical Battery Test
+2026-08-27 14:17:41.052 [INFO] Start time: 2026-08-27 14:17:41.052
+2026-08-27 14:17:41.052 [INFO] Sending VV battery test command, 0x82
+2026-08-27 14:17:42.122 [INFO] End time: 2026-08-27 14:17:42.122
+2026-08-27 14:17:42.122 [INFO] Duration: 00:00:01.0703382
+2026-08-27 14:17:42.125 [INFO] Expected Status = CRITICAL
+2026-08-27 14:17:42.125 [INFO] Actual Status = CRITICAL
+2026-08-27 14:17:42.125 [INFO] Expected Voltage = 2.40 V
+2026-08-27 14:17:42.125 [INFO] Actual Voltage = 2.40 V
+2026-08-27 14:17:42.125 [INFO] BAT_003 : PASS
+2026-08-27 14:17:42.125 [INFO] JsonFile: Battery_BAT_003_2026-08-27_14-17-42-122_PASS.json
+2026-08-27 14:17:42.155 [INFO] 
+2026-08-27 14:17:42.155 [INFO] ****************************************
+2026-08-27 14:17:42.155 [INFO] PDF generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Battery\BATT-20260827-141738\Battery_Test_Report_BATT-2026-08-27_14-17-38_FAIL.pdf
+2026-08-27 14:17:42.208 [INFO] Excel generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Battery\BATT-20260827-141738\Battery_Test_Report_BATT-2026-08-27_14-17-38_FAIL.xlsx
+2026-08-27 14:17:42.208 [INFO] 
+2026-08-27 14:17:42.208 [INFO] ****************************************
+2026-08-27 14:17:42.208 [INFO] Session summary : Total=3, Passed=2, Failed=1
+2026-08-27 14:17:42.208 [INFO] Session summary JSON saved : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Battery\BATT-20260827-141738\BatterySession_BATT-2026-08-27_14-17-38_FAIL.json
+2026-08-27 14:17:42.208 [INFO] End Time : 2026-08-27 14:17:42.125
+2026-08-27 14:17:42.208 [INFO] Battery session completed.

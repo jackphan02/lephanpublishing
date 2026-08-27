@@ -1,0 +1,11 @@
+{
+  "TestTime": "2026-08-27T14:17:52.4508286-07:00",
+  "TestType": "ACCELEROMETER_TEST_I2C_NO_HANG",
+  "TestCaseId": "ACC_009",
+  "TestName": "I2C No-Hang",
+  "ExpectedResult": "NO HANG",
+  "ActualTestStatus": "ACCELEROMETER_TEST_STATUS_INVALID_SETUP",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": false,
+  "ErrorMessage": ""
+}

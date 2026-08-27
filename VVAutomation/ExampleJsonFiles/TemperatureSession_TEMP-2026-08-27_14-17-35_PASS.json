@@ -1,15 +1,15 @@
 {
   "FileType": "TemperatureTestSessionSummaryFile",
   "JsonFormatVersion": "1.0.1",
-  "SessionId": "TEMP-2026-08-12_11-59-31",
+  "SessionId": "TEMP-2026-08-27_14-17-35",
   "ProjectName": "V&V Automation Test Practice Demo",
   "TestSuiteName": "Temperature Verification Test",
   "DeviceUnderTest": "STM32 Temperature Demo",
   "DutSerialNumber": "DEMO-DUT-001",
   "FirmwareVersion": "1.0.0",
   "OperatorName": "Jack Phan",
-  "StartTime": "2026-08-12T11:59:31.540042-07:00",
-  "EndTime": "2026-08-12T11:59:34.7916519-07:00",
+  "StartTime": "2026-08-27T14:17:35.5476995-07:00",
+  "EndTime": "2026-08-27T14:17:38.7859754-07:00",
   "OverallResult": "PASS",
   "TotalTests": 3,
   "PassedTests": 3,
@@ -21,22 +21,22 @@
       "TestCaseId": "TEMP_001",
       "TestName": "25C Normal Test",
       "Result": "PASS",
-      "TestTime": "2026-08-12T11:59:32.630442-07:00",
-      "JsonFile": "Temperature_TEMP_001_2026-08-12_11-59-32-630_PASS.json"
+      "TestTime": "2026-08-27T14:17:36.6169014-07:00",
+      "JsonFile": "Temperature_TEMP_001_2026-08-27_14-17-36-616_PASS.json"
     },
     {
       "TestCaseId": "TEMP_002",
       "TestName": "50C Normal Test",
       "Result": "PASS",
-      "TestTime": "2026-08-12T11:59:33.7236741-07:00",
-      "JsonFile": "Temperature_TEMP_002_2026-08-12_11-59-33-723_PASS.json"
+      "TestTime": "2026-08-27T14:17:37.7164146-07:00",
+      "JsonFile": "Temperature_TEMP_002_2026-08-27_14-17-37-716_PASS.json"
     },
     {
       "TestCaseId": "TEMP_003",
       "TestName": "75C Normal Test",
       "Result": "PASS",
-      "TestTime": "2026-08-12T11:59:34.7889945-07:00",
-      "JsonFile": "Temperature_TEMP_003_2026-08-12_11-59-34-788_PASS.json"
+      "TestTime": "2026-08-27T14:17:38.7824301-07:00",
+      "JsonFile": "Temperature_TEMP_003_2026-08-27_14-17-38-782_PASS.json"
     }
   ]
 }

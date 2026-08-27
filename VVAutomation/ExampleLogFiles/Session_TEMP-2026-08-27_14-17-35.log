@@ -1,0 +1,61 @@
+2026-08-27 14:17:35.548 [INFO] Criteria File   : C:\MyDocs\ConsultantProject\VVTemperature\VVTemp\bin\Debug\net8.0-windows\TestCriteria\TemperatureTestCriteria.json
+2026-08-27 14:17:35.548 [INFO] Loaded Tests    : 3
+2026-08-27 14:17:35.548 [INFO] ========================================
+2026-08-27 14:17:35.548 [INFO] Temperature test session started.
+2026-08-27 14:17:35.548 [INFO] Session ID     : TEMP-2026-08-27_14-17-35
+2026-08-27 14:17:35.548 [INFO] Session Folder : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Temperature\TEMP-20260827-141735
+2026-08-27 14:17:35.549 [INFO] Operator       : Jack Phan
+2026-08-27 14:17:35.549 [INFO] COM Port       : COM4
+2026-08-27 14:17:35.549 [INFO] Firmware ver.  : 1.0.0
+2026-08-27 14:17:35.549 [INFO] Start Time     : 2026-08-27 14:17:35.547
+2026-08-27 14:17:35.549 [INFO] ========================================
+2026-08-27 14:17:35.549 [INFO] 
+2026-08-27 14:17:35.549 [INFO] ****************************************
+2026-08-27 14:17:35.549 [INFO] Test started : TEMP_001 - 25C Normal Test
+2026-08-27 14:17:35.550 [INFO] Start time: 2026-08-27 14:17:35.550
+2026-08-27 14:17:35.550 [INFO] Sending VV temperature test command, 0x80
+2026-08-27 14:17:35.580 [INFO] Response received: 0x81
+2026-08-27 14:17:36.616 [INFO] End time: 2026-08-27 14:17:36.616
+2026-08-27 14:17:36.616 [INFO] Duration: 00:00:01.0659867
+2026-08-27 14:17:36.632 [INFO] Expected Status = NORMAL
+2026-08-27 14:17:36.632 [INFO] Actual Status = NORMAL
+2026-08-27 14:17:36.632 [INFO] Expected Temp = 25.0C
+2026-08-27 14:17:36.632 [INFO] Actual Temp = 25.0C
+2026-08-27 14:17:36.632 [INFO] TEMP_001 : PASS
+2026-08-27 14:17:36.632 [INFO] JsonFile: Temperature_TEMP_001_2026-08-27_14-17-36-616_PASS.json
+2026-08-27 14:17:36.632 [INFO] 
+2026-08-27 14:17:36.632 [INFO] ****************************************
+2026-08-27 14:17:36.632 [INFO] Test started : TEMP_002 - 50C Normal Test
+2026-08-27 14:17:36.632 [INFO] Start time: 2026-08-27 14:17:36.632
+2026-08-27 14:17:36.632 [INFO] Sending VV temperature test command, 0x80
+2026-08-27 14:17:36.653 [INFO] Response received: 0x81
+2026-08-27 14:17:37.716 [INFO] End time: 2026-08-27 14:17:37.716
+2026-08-27 14:17:37.716 [INFO] Duration: 00:00:01.0838732
+2026-08-27 14:17:37.720 [INFO] Expected Status = WARM
+2026-08-27 14:17:37.720 [INFO] Actual Status = WARM
+2026-08-27 14:17:37.720 [INFO] Expected Temp = 50.0C
+2026-08-27 14:17:37.720 [INFO] Actual Temp = 49.9C
+2026-08-27 14:17:37.720 [INFO] TEMP_002 : PASS
+2026-08-27 14:17:37.720 [INFO] JsonFile: Temperature_TEMP_002_2026-08-27_14-17-37-716_PASS.json
+2026-08-27 14:17:37.721 [INFO] 
+2026-08-27 14:17:37.721 [INFO] ****************************************
+2026-08-27 14:17:37.721 [INFO] Test started : TEMP_003 - 75C Normal Test
+2026-08-27 14:17:37.721 [INFO] Start time: 2026-08-27 14:17:37.721
+2026-08-27 14:17:37.721 [INFO] Sending VV temperature test command, 0x80
+2026-08-27 14:17:37.752 [INFO] Response received: 0x81
+2026-08-27 14:17:38.781 [INFO] End time: 2026-08-27 14:17:38.781
+2026-08-27 14:17:38.781 [INFO] Duration: 00:00:01.0607910
+2026-08-27 14:17:38.785 [INFO] Expected Status = HOT
+2026-08-27 14:17:38.785 [INFO] Actual Status = HOT
+2026-08-27 14:17:38.785 [INFO] Expected Temp = 75.0C
+2026-08-27 14:17:38.785 [INFO] Actual Temp = 75.0C
+2026-08-27 14:17:38.785 [INFO] TEMP_003 : PASS
+2026-08-27 14:17:38.785 [INFO] JsonFile: Temperature_TEMP_003_2026-08-27_14-17-38-782_PASS.json
+2026-08-27 14:17:38.832 [INFO] 
+2026-08-27 14:17:38.832 [INFO] ****************************************
+2026-08-27 14:17:38.832 [INFO] PDF generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Temperature\TEMP-20260827-141735\Temperature_Test_Report_TEMP-2026-08-27_14-17-35_PASS.pdf
+2026-08-27 14:17:38.877 [INFO] Excel generated : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Temperature\TEMP-20260827-141735\Temperature_Test_Report_TEMP-2026-08-27_14-17-35_PASS.xlsx
+2026-08-27 14:17:38.878 [INFO] Session summary : Total=3, Passed=3, Failed=0
+2026-08-27 14:17:38.878 [INFO] Session summary JSON saved : C:\Users\jackp\OneDrive\Desktop\VVTestResults\AllTests\VVALL-20260827-141735\Temperature\TEMP-20260827-141735\TemperatureSession_TEMP-2026-08-27_14-17-35_PASS.json
+2026-08-27 14:17:38.878 [INFO] End Time   :2026-08-27 14:17:38.785
+2026-08-27 14:17:38.878 [INFO] Temperature session completed.
