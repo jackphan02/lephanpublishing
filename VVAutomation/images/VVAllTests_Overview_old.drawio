@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" agent="ChatGPT" pages="2">
   <diagram id="vvall-web-flow" name="Website Overview">
     <mxGraphModel dx="2081" dy="1572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="2200" math="0" shadow="0">
@@ -33,13 +32,13 @@
           <mxGeometry height="85" width="360" x="994" y="850" as="geometry" />
         </mxCell>
         <mxCell id="summary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f1fb;strokeColor=#4f81bd;strokeWidth=2;fontColor=#17365d;fontSize=19;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;Build All V&amp;amp;V Session Summary&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Suite results &amp;nbsp;•&amp;nbsp; Test counts &amp;nbsp;•&amp;nbsp; Consolidated PASS / FAIL&lt;/font&gt;" vertex="1">
-          <mxGeometry height="105" width="430" x="484" y="1175" as="geometry" />
+          <mxGeometry height="105" width="430" x="484" y="1010" as="geometry" />
         </mxCell>
         <mxCell id="sessionjson" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;strokeWidth=2;fontColor=#4a4a1f;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;Generated file&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;All V&amp;amp;V Session JSON&lt;/font&gt;" vertex="1">
-          <mxGeometry height="85" width="360" x="994" y="1185" as="geometry" />
+          <mxGeometry height="85" width="360" x="994" y="1020" as="geometry" />
         </mxCell>
         <mxCell id="overall" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1ecfb;strokeColor=#8064a2;strokeWidth=2;fontColor=#3f2a66;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;Overall V&amp;amp;V Result&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:22px&quot;&gt;&lt;b&gt;PASS / FAIL&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="100" width="430" x="484" y="1345" as="geometry" />
+          <mxGeometry height="100" width="430" x="484" y="1180" as="geometry" />
         </mxCell>
         <mxCell id="framework" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#aab3bd;strokeWidth=2;fontColor=#374151;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;Framework Capabilities&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Configurable criteria&lt;br&gt;PC ↔ embedded hardware communication&lt;br&gt;Command / response protocol handling&lt;br&gt;Automatic result evaluation&lt;br&gt;Traceable evidence generation&lt;br&gt;Exception-aware execution&lt;/font&gt;" vertex="1">
           <mxGeometry height="230" width="230" x="127" y="428" as="geometry" />
@@ -59,7 +58,7 @@
         <mxCell id="e5" edge="1" parent="1" source="batt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;" target="acc">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e6" edge="1" parent="1" source="acc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;" target="spi">
+        <mxCell id="e6" edge="1" parent="1" source="acc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;" target="summary">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e7" edge="1" parent="1" source="summary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;" target="overall">
@@ -86,19 +85,7 @@
         <mxCell id="wcbWVI1jPVsypFSxzPAx-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#aab3bd;strokeWidth=2;fontColor=#374151;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;span style=&quot;font-size: 14px; font-weight: 400; color: rgb(0, 0, 0);&quot;&gt;Each suite follows the same reusable automation pattern while allowing suite-specific test criteria and result evaluation.&lt;/span&gt;" vertex="1">
           <mxGeometry height="120" width="230" x="128" y="720" as="geometry" />
         </mxCell>
-      <mxCell id="spi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef7e8;strokeColor=#70ad47;strokeWidth=2;fontColor=#215e21;fontSize=19;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;SPI FRAM Verification Suite&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Load criteria → Send command to embedded hardware → Receive device response&lt;br&gt;Evaluate PASS / FAIL → Record results&lt;/font&gt;" vertex="1">
-          <mxGeometry height="105" width="430" x="484" y="1005" as="geometry" />
-        </mxCell>
-        <mxCell id="spiout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;strokeWidth=2;fontColor=#4a4a1f;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;spacing=8;" value="&lt;b&gt;Generated files&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;PDF &amp;nbsp;/&amp;nbsp; Excel &amp;nbsp;/&amp;nbsp; JSON &amp;nbsp;/&amp;nbsp; Log&lt;/font&gt;" vertex="1">
-          <mxGeometry height="85" width="360" x="994" y="1015" as="geometry" />
-        </mxCell>
-        <mxCell id="e_spi_summary" edge="1" parent="1" source="spi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;" target="summary">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e_spi_out" edge="1" parent="1" source="spi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#374151;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="spiout">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        </root>
+      </root>
     </mxGraphModel>
   </diagram>
   <diagram id="run-all-tests" name="Engineering Detail - 02 Run All Tests">
@@ -106,49 +93,49 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="MainWindow.xaml&#10;Run All Tests button" vertex="1">
+        <mxCell id="ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="MainWindow.xaml&#xa;Run All Tests button" vertex="1">
           <mxGeometry height="70" width="300" x="420" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="entry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="MainWindowViewModel&#10;BtnRunAllTemperatureTests()" vertex="1">
+        <mxCell id="entry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="MainWindowViewModel&#xa;BtnRunAllTemperatureTests()" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="120" as="geometry" />
         </mxCell>
         <mxCell id="check_serial" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="IsReadySerialPort()?" vertex="1">
           <mxGeometry height="100" width="230" x="455" y="230" as="geometry" />
         </mxCell>
-        <mxCell id="serial_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="TestingNotify =&#10;&quot;Tests were not started. Serial port is unavailable.&quot;" vertex="1">
+        <mxCell id="serial_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="TestingNotify =&#xa;&quot;Tests were not started. Serial port is unavailable.&quot;" vertex="1">
           <mxGeometry height="75" width="300" x="20" y="245" as="geometry" />
         </mxCell>
         <mxCell id="check_tester" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="string.IsNullOrWhiteSpace(TesterName)?" vertex="1">
           <mxGeometry height="110" width="230" x="455" y="370" as="geometry" />
         </mxCell>
-        <mxCell id="tester_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="TestingNotify =&#10;&quot;Please enter the tester name.&quot;" vertex="1">
+        <mxCell id="tester_fail" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="TestingNotify =&#xa;&quot;Please enter the tester name.&quot;" vertex="1">
           <mxGeometry height="75" width="300" x="20" y="390" as="geometry" />
         </mxCell>
-        <mxCell id="save_settings" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Settings.Default.TesterName = TesterName&#10;Settings.Default.Save()" vertex="1">
+        <mxCell id="save_settings" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Settings.Default.TesterName = TesterName&#xa;Settings.Default.Save()" vertex="1">
           <mxGeometry height="80" width="300" x="420" y="520" as="geometry" />
         </mxCell>
-        <mxCell id="init_ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ReportFileNames = string.Empty&#10;TemperatureTestResults.Clear()" vertex="1">
+        <mxCell id="init_ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ReportFileNames = string.Empty&#xa;TemperatureTestResults.Clear()" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="session_time" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="sessionStartTime = DateTime.Now&#10;sessionId = TEMP-yyyyMMdd-HHmmss" vertex="1">
+        <mxCell id="session_time" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="sessionStartTime = DateTime.Now&#xa;sessionId = TEMP-yyyyMMdd-HHmmss" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="735" as="geometry" />
         </mxCell>
-        <mxCell id="create_folder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ResultFolderManager&#10;CreateTemperatureSessionFolder()" vertex="1">
+        <mxCell id="create_folder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ResultFolderManager&#xa;CreateTemperatureSessionFolder()" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="840" as="geometry" />
         </mxCell>
         <mxCell id="folder_obj" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="sessionFolder" vertex="1">
           <mxGeometry height="65" width="220" x="790" y="845" as="geometry" />
         </mxCell>
-        <mxCell id="create_logger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="using FileAppLogger logger =&#10;new(sessionFolder, sessionId)" vertex="1">
+        <mxCell id="create_logger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="using FileAppLogger logger =&#xa;new(sessionFolder, sessionId)" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="945" as="geometry" />
         </mxCell>
         <mxCell id="logger_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="LoggerManager.Start(logger)" vertex="1">
           <mxGeometry height="65" width="300" x="420" y="1050" as="geometry" />
         </mxCell>
-        <mxCell id="lists" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Create session collections&#10;List&lt;TemperatureTestResult&gt; sessionResults&#10;List&lt;TemperatureSessionSummaryItem&gt; testSummaries" vertex="1">
+        <mxCell id="lists" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Create session collections&#xa;List&lt;TemperatureTestResult&gt; sessionResults&#xa;List&lt;TemperatureSessionSummaryItem&gt; testSummaries" vertex="1">
           <mxGeometry height="100" width="300" x="420" y="1145" as="geometry" />
         </mxCell>
-        <mxCell id="load_tests" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperatureTestFactory.GetAll()&#10;(load enabled criteria)" vertex="1">
+        <mxCell id="load_tests" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperatureTestFactory.GetAll()&#xa;(load enabled criteria)" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="1275" as="geometry" />
         </mxCell>
         <mxCell id="foreach" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="foreach (TemperatureTestCase testCase)" vertex="1">
@@ -157,37 +144,37 @@
         <mxCell id="run_single" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="RunSingleTestAsync(testCase)" vertex="1">
           <mxGeometry height="70" width="300" x="420" y="1525" as="geometry" />
         </mxCell>
-        <mxCell id="save_json" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="JsonResultWriter&#10;SaveTemperatureResultAsync(...)" vertex="1">
+        <mxCell id="save_json" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="JsonResultWriter&#xa;SaveTemperatureResultAsync(...)" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="1625" as="geometry" />
         </mxCell>
-        <mxCell id="update_lists" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Add result to sessionResults&#10;Add summary item to testSummaries&#10;Update TemperatureTestResults" vertex="1">
+        <mxCell id="update_lists" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Add result to sessionResults&#xa;Add summary item to testSummaries&#xa;Update TemperatureTestResults" vertex="1">
           <mxGeometry height="90" width="300" x="420" y="1730" as="geometry" />
         </mxCell>
         <mxCell id="loop_back" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="More tests?" vertex="1">
           <mxGeometry height="95" width="230" x="455" y="1850" as="geometry" />
         </mxCell>
-        <mxCell id="build_session" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Build TemperatureTestSession&#10;Set tester, DUT, firmware, start/end,&#10;results, overall PASS/FAIL" vertex="1">
+        <mxCell id="build_session" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Build TemperatureTestSession&#xa;Set tester, DUT, firmware, start/end,&#xa;results, overall PASS/FAIL" vertex="1">
           <mxGeometry height="100" width="300" x="420" y="1985" as="geometry" />
         </mxCell>
-        <mxCell id="pdf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperaturePdfReportGenerator&#10;GenerateReport(...)" vertex="1">
+        <mxCell id="pdf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperaturePdfReportGenerator&#xa;GenerateReport(...)" vertex="1">
           <mxGeometry height="80" width="280" x="120" y="2140" as="geometry" />
         </mxCell>
-        <mxCell id="excel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperatureExcelReportGenerator&#10;GenerateReport(...)" vertex="1">
+        <mxCell id="excel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TemperatureExcelReportGenerator&#xa;GenerateReport(...)" vertex="1">
           <mxGeometry height="80" width="280" x="430" y="2140" as="geometry" />
         </mxCell>
-        <mxCell id="summary_json" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="JsonResultWriter&#10;SaveTemperatureSessionSummaryAsync(...)" vertex="1">
+        <mxCell id="summary_json" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="JsonResultWriter&#xa;SaveTemperatureSessionSummaryAsync(...)" vertex="1">
           <mxGeometry height="80" width="300" x="740" y="2140" as="geometry" />
         </mxCell>
-        <mxCell id="report_names" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Update ReportFileNames&#10;PDF / Excel / JSON filenames" vertex="1">
+        <mxCell id="report_names" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Update ReportFileNames&#xa;PDF / Excel / JSON filenames" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="2344" as="geometry" />
         </mxCell>
-        <mxCell id="open_pdf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Process.Start(...)&#10;Open generated PDF" vertex="1">
+        <mxCell id="open_pdf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Process.Start(...)&#xa;Open generated PDF" vertex="1">
           <mxGeometry height="75" width="300" x="420" y="2449" as="geometry" />
         </mxCell>
-        <mxCell id="complete" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TestingNotify = &quot;Testing completed.&quot;&#10;Log session completed" vertex="1">
+        <mxCell id="complete" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="TestingNotify = &quot;Testing completed.&quot;&#xa;Log session completed" vertex="1">
           <mxGeometry height="80" width="300" x="420" y="2554" as="geometry" />
         </mxCell>
-        <mxCell id="finally" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="finally&#10;LoggerManager.Stop()" vertex="1">
+        <mxCell id="finally" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="finally&#xa;LoggerManager.Stop()" vertex="1">
           <mxGeometry height="70" width="300" x="420" y="2669" as="geometry" />
         </mxCell>
         <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="END" vertex="1">
@@ -208,13 +195,13 @@
         <mxCell id="summary_file" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="TemperatureSession_....json" vertex="1">
           <mxGeometry height="65" width="300" x="760" y="2245" as="geometry" />
         </mxCell>
-        <mxCell id="exception_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Per-test exception handling&#10;• Log exception&#10;• Create FAIL result&#10;• Save individual JSON&#10;• Continue with remaining tests" vertex="1">
+        <mxCell id="exception_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Per-test exception handling&#xa;• Log exception&#xa;• Create FAIL result&#xa;• Save individual JSON&#xa;• Continue with remaining tests" vertex="1">
           <mxGeometry height="145" width="300" x="790" y="1450" as="geometry" />
         </mxCell>
-        <mxCell id="report_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Report generation uses the same session data.&#10;PDF and Excel should remain close together in code&#10;for easier maintenance and future extension." vertex="1">
+        <mxCell id="report_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Report generation uses the same session data.&#xa;PDF and Excel should remain close together in code&#xa;for easier maintenance and future extension." vertex="1">
           <mxGeometry height="145" width="300" x="1080" y="2090" as="geometry" />
         </mxCell>
-        <mxCell id="developer_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Important&#10;• No nested try/catch preferred&#10;• Individual JSON is saved per test&#10;• Reports are generated after all tests finish&#10;• PASS/FAIL is determined before report generation" vertex="1">
+        <mxCell id="developer_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Important&#xa;• No nested try/catch preferred&#xa;• Individual JSON is saved per test&#xa;• Reports are generated after all tests finish&#xa;• PASS/FAIL is determined before report generation" vertex="1">
           <mxGeometry height="165" width="300" x="1080" y="2400" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="entry" value="">
