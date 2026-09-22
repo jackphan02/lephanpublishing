@@ -406,6 +406,7 @@
                     Temperature &nbsp; | &nbsp;
                     Battery &nbsp; | &nbsp;
                     Accelerometer &nbsp; | &nbsp;
+                    SPI FRAM &nbsp; | &nbsp;
                     All V&amp;V Tests
                 </p>
 
@@ -530,9 +531,10 @@
 
         <p>
             The desktop application controls test execution and provides
-            the primary operator interface. Each verification area uses
-            the same general automation pattern.
-        </p>
+            the primary operator interface. Temperature, Battery,
+            Accelerometer, and SPI FRAM verification use the same general
+            automation pattern.
+        </p>        
 
         <div class="feature-grid">
 
@@ -602,8 +604,9 @@
             The PC application communicates with the embedded control board
             through a defined command-and-response interface. The protocol
             separates test execution from the user interface and allows the
-            same automation approach to be reused with additional tests.
-        </p>
+            same automation approach to support different verification areas,
+            including I2C sensors and SPI-connected devices.
+        </p>        
 
         <div class="feature-grid">
 
@@ -668,12 +671,12 @@
     <section class="section">
 
         <h2>Embedded Firmware Test Support</h2>
-
         <p>
             The embedded firmware contains dedicated V&amp;V support that
             receives test requests, executes the selected test condition,
+            interacts with I2C sensors and SPI-connected hardware as required,
             and returns measured or simulated results to the PC application.
-        </p>
+        </p>        
 
         <div class="feature-grid">
 
@@ -701,6 +704,34 @@
 
             </div>
 
+            <!-- Accelerometer I2C Interface -->
+
+            <div class="feature-card">
+
+                <h3>Accelerometer I2C Interface</h3>
+
+                <p>
+                    Interfaces with the BMA400 I2C accelerometer to perform
+                    acceleration measurements, configuration readback, and
+                    communication tests.
+                </p>
+
+            </div>
+
+
+            <!-- SPI FRAM Hardware Interface -->
+
+            <div class="feature-card">
+
+                <h3>SPI FRAM Hardware Interface</h3>
+
+                <p>
+                    Uses the SPI interface to access the external FRAM device
+                    and perform device identification, write enable, memory
+                    read/write, communication error, and timeout tests.
+                </p>
+
+            </div>            
 
             <div class="feature-card">
 
@@ -861,10 +892,10 @@
         <h2>Reusable and Expandable</h2>
 
         <p>
-            Temperature, Battery, and Accelerometer tests are used in the
-            current demonstration, but they are examples of the test
+            Temperature, Battery, Accelerometer, and SPI FRAM tests are used
+            in the current demonstration, but they are examples of the test
             architecture rather than fixed limitations of the framework.
-        </p>
+        </p>        
 
         <p>
             Additional sensors, device functions, communication interfaces,
