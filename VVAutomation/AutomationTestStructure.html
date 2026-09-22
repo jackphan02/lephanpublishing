@@ -388,6 +388,13 @@
 │   │   ├── AccelerometerCriteriaLoader.cs
 │   │   └── AccelerometerTestSession.cs
 │   │
+│   ├── SPI/
+│   │   ├── SPITestCase.cs
+│   │   ├── SPITestResult.cs
+│   │   ├── SPITestRunner.cs
+│   │   ├── SPICriteriaLoader.cs
+│   │   └── SPITestSession.cs
+|   |
 │   ├── AllTests/
 │   │   ├── VVAllTestsControl.cs
 │   │   └── VVAllTestsSession.cs
@@ -405,6 +412,7 @@
 │   ├── TemperatureCriteria.json
 │   ├── BatteryCriteria.json
 │   └── AccelerometerCriteria.json
+│   └── SPITestCriteria.json
 │
 ├── STM32Firmware/
 │   │
@@ -423,15 +431,21 @@
 │   │   ├── BatteryTestRunner.c
 │   │   └── BatteryCommandHandler.c
 │   │
-│   └── Accelerometer/
-│       ├── AccelerometerTestCase.c
-│       ├── AccelerometerTestRunner.c
-│       └── AccelerometerCommandHandler.c
+│   ├── Accelerometer/
+│   |   ├── AccelerometerTestCase.c
+│   |   ├── AccelerometerTestRunner.c
+│   |   └── AccelerometerCommandHandler.c
+|   |
+│   ├── SPI/
+│   |   ├── SPITestCase.c
+│   |   ├── SPITestRunner.c
+│   |   └── SPICommandHandler.c
 │
 └── TestResults/
     ├── Temperature/
     ├── Battery/
     ├── Accelerometer/
+    ├── SPI/
     └── AllTests/</pre>
 
             </div>
@@ -623,6 +637,12 @@
                 <div class="flow-arrow">↓</div>
 
                 <div class="flow-step">
+                    Run SPI FRAM Tests
+                </div>
+
+                <div class="flow-arrow">↓</div>                
+
+                <div class="flow-step">
                     Calculate Test Totals
                 </div>
 
@@ -720,6 +740,12 @@
         │   ├── PDF Report
         │   └── Excel Report
         │
+        ├── SPI
+        │   ├── Test JSON Files
+        │   ├── Session JSON
+        │   ├── PDF Report
+        │   └── Excel Report
+        |        
         └── All V&amp;V Session Summary</pre>
 
             </div>
