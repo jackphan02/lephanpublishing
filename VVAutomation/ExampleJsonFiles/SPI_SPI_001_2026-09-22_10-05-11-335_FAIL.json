@@ -1,0 +1,13 @@
+{
+  "TestTime": "2026-09-22T10:05:11.335932-07:00",
+  "TestType": "SPI_TEST_UNIQUE_DEVICE_ID",
+  "TestCaseId": "SPI_001",
+  "TestName": "Unique Device ID",
+  "ExpectedResult": "Valid 64-bit Unique ID",
+  "UniqueDeviceId": "00 00 00 00 00 00 00 00",
+  "DeviceState": "SPI_DEVICE_STATE_READY",
+  "ActualTestStatus": "SPI_TEST_STATUS_PASS",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": false,
+  "ErrorMessage": "Invalid SPI FRAM unique device ID. Received = 00 00 00 00 00 00 00 00."
+}

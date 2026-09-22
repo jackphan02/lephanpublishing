@@ -1,0 +1,13 @@
+{
+  "TestTime": "2026-09-22T10:05:12.3940005-07:00",
+  "TestType": "SPI_TEST_WRITE_ENABLE",
+  "TestCaseId": "SPI_002",
+  "TestName": "Write Enable",
+  "ExpectedResult": "WEL bit = 1",
+  "ActualResult": "0x42 (WEL=1)",
+  "DeviceState": "SPI_DEVICE_STATE_READY",
+  "ActualTestStatus": "SPI_TEST_STATUS_PASS",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": true,
+  "ErrorMessage": ""
+}

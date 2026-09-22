@@ -1,0 +1,13 @@
+{
+  "TestTime": "2026-09-22T10:05:15.5085113-07:00",
+  "TestType": "SPI_TEST_COMMUNICATION_ERROR",
+  "TestCaseId": "SPI_005",
+  "TestName": "SPI Comm. Error Handling",
+  "ExpectedResult": "Communication error detected",
+  "ActualResult": "SPI_DEVICE_STATE_COMM_ERROR",
+  "DeviceState": "SPI_DEVICE_STATE_COMM_ERROR",
+  "ActualTestStatus": "SPI_TEST_STATUS_FAIL",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": true,
+  "ErrorMessage": ""
+}

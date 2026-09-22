@@ -1,0 +1,13 @@
+{
+  "TestTime": "2026-09-22T10:05:16.5468068-07:00",
+  "TestType": "SPI_TEST_SPI_NO_HANG",
+  "TestCaseId": "SPI_006",
+  "TestName": "SPI No-Hang",
+  "ExpectedResult": "NO TIMEOUT / NO HANG",
+  "ActualResult": "NO TIMEOUT / NO HANG",
+  "DeviceState": "SPI_DEVICE_STATE_READY",
+  "ActualTestStatus": "SPI_TEST_STATUS_PASS",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": true,
+  "ErrorMessage": ""
+}

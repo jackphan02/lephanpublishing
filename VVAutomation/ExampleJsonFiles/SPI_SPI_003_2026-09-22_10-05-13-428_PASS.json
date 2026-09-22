@@ -1,0 +1,15 @@
+{
+  "TestTime": "2026-09-22T10:05:13.4288144-07:00",
+  "TestType": "SPI_TEST_SINGLE_BYTE_RW",
+  "TestCaseId": "SPI_003",
+  "TestName": "Single Byte Read/Write",
+  "MemoryAddress": "0x000100",
+  "WritingByte": "0x5A",
+  "ExpectedReadingByte": "0x5A",
+  "ActualReadingByte": "0x5A",
+  "DeviceState": "SPI_DEVICE_STATE_READY",
+  "ActualTestStatus": "SPI_TEST_STATUS_PASS",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": true,
+  "ErrorMessage": ""
+}

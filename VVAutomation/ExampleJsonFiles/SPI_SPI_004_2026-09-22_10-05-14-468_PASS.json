@@ -1,0 +1,14 @@
+{
+  "TestTime": "2026-09-22T10:05:14.4687203-07:00",
+  "TestType": "SPI_TEST_MULTIPLE_BYTE_RW",
+  "TestCaseId": "SPI_004",
+  "TestName": "Multiple Byte Read/Write",
+  "MemoryAddress": "0x000200",
+  "WritingMultipleBytes": "0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88",
+  "ActualReadingMultipleBytes": "0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88",
+  "DeviceState": "SPI_DEVICE_STATE_READY",
+  "ActualTestStatus": "SPI_TEST_STATUS_PASS",
+  "ResponseTimeout": "NO TIMEOUT",
+  "IsPass": true,
+  "ErrorMessage": ""
+}
